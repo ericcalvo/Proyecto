@@ -1,0 +1,33 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use App\Models\User;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Route;
+
+class MultijuegosController extends Controller
+{
+    public function game()
+    {
+        //
+        return view('game');
+    }
+    public function bug()
+    {
+        //
+        return view('bug');
+    }
+
+    public function index()
+    {
+        //
+    }
+
+    public function store(Request $request)
+    {
+        //
+    }
+}
