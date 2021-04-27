@@ -31,4 +31,8 @@ class MultijuegosController extends Controller
     {
         //
     }
+    public function categoria_show()
+    {
+        return view('categorias');
+    }
 }
