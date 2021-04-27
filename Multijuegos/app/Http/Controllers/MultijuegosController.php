@@ -37,4 +37,9 @@ class MultijuegosController extends Controller
         
         return view('categorias');
     }
+
+    public function lista_juegos($id)
+    {
+        $juegos = Category::all()
+    }
 }

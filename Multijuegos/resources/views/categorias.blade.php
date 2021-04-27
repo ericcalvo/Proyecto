@@ -6,8 +6,10 @@
     <title>Document</title>
 </head>
 <body>
-    @foreach (category::all() as $categoria)
-        <p> <a href="{{ route(' $categoria -> name ') }}"></a>{{ $categoria -> name}}</p>
-    @endforeach
+    <ol>
+        @foreach (category::all() as $categoria)
+            <li> <a href="{{ route('/cat/ $categoria -> id ') }}">{{ $categoria -> name}}</a></li>
+        @endforeach
+    </ol>
 </body>
 </html>
