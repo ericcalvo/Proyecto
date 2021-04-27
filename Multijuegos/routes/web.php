@@ -16,7 +16,7 @@ use GuzzleHttp\Middleware;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('portada');
 });
 
 Route::get('/multijuegos', function () {
