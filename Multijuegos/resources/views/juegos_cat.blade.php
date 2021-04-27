@@ -7,8 +7,9 @@
 </head>
 <body>
     <ol>
-        @foreach (category::all() as $categoria)
-            <li> <a href="{{ route('/cat/$categoria -> id ') }}">{{ $categoria -> name}}</a></li>
+        @foreach ($juegos as $juego)
+            @if($juegos->category === $id)
+                <li> <a href="{{ route('/juego/$juego -> name ') }}">{{ $juego -> name}}</a></li>
         @endforeach
     </ol>
 </body>

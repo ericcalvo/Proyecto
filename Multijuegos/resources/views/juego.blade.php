@@ -1,0 +1,1 @@
+vienvenido al juego {{ $juego->name }}
