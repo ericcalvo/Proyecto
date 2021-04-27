@@ -6,8 +6,8 @@
     <title>Document</title>
 </head>
 <body>
-    @foreach ($categorias as $categoria)
-        <p> {{ $categoria-> }}</p>
+    @foreach ($category as $categoria)
+        <p> {{ $categoria -> name}}</p>
     @endforeach
 </body>
 </html>

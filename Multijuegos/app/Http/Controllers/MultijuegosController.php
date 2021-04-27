@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Route;
+use App\Models\Category;
 
 class MultijuegosController extends Controller
 {
@@ -33,6 +34,7 @@ class MultijuegosController extends Controller
     }
     public function categoria_show()
     {
+        
         return view('categorias');
     }
 }
