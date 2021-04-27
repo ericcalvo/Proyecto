@@ -20,8 +20,8 @@ Route::get('/', function () {
 });
 
 Route::get('/multijuegos', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+    return view('multijuegos');
+})->middleware(['auth'])->name('multijuegos');
 
 Route::get('/bug', [MultijuegosController::class, 'bug'])->middleware(['auth']);
 

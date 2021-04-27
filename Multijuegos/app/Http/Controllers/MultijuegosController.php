@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Route;
 
 class MultijuegosController extends Controller
 {
+
     public function game()
     {
         //
