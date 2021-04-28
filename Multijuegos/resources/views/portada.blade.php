@@ -11,28 +11,96 @@
 
         <!-- Styles -->
         <style>
+            /* Nav styles */
+            .logo {
+                height: 200px;
+                margin-top: -30px;
+                margin-bottom: -40px;
+            }
+            .nav_izquierda {
+                color: white;
+                margin-left: 40px;
+            }
+            .login_container{
+                margin-top: 50px;
+            }
+            .navegador{
+                background-color: #302E2E;
+            }
+            .labelMultijuegos{
+                color: white;
+                font-size: 17px;
+                margin-left: 20px;
+            }
+            /* Content styles */
 
+            /* Footer styles */
+            .footer {
+                background-color: #302E2E;
+                margin-top: 300px;
+            }
+            .contactos{
+                color: white;
+            }
+            .copyright{
+                color: white;
+            }
+            .reportarBug{
+                color: white;
+            }
         </style>
+        
     </head>
     <body>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-10">
-                    <img src="">
+        <div class="container-fluid">
+            <!-- Home Nav -->
+            <div class="row navegador">
+                <div class="col-md-3 col-8 nav_izquierda">
+                    <img class="logo" src="images/Multijuegos.png">
+                    <p>Si estas aqui es para pasarlo bien</p>
                 </div>
-                <div class="col-md-2">
+                <div class="offset-md-6 offset-col-2 login_container">
                     @if (Route::has('login'))
                         <div class="hidden fixed top-0 right-0 px-2 py-4 sm:block">
                             @auth
-                                <a id="" href="{{ url('/multijuegos') }}" class="text-sm text-gray-700 underline">Multijuegos</a>
+                                <a href="{{ url('/multijuegos') }}" class="text-sm text-gray-700 underline labelMultijuegos">Multijuegos</a>
                             @else
-                                <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Log in</a>
+                                <a href="{{ route('login') }}" class="text-sm text-gray-700 underline labelMultijuegos">Log in</a>
                                 @if (Route::has('register'))
-                                    <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
+                                    <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline labelMultijuegos">Register</a>
                                 @endif
                             @endauth
                         </div>
                     @endif
+                </div>
+            </div>
+
+            <!-- Home Content -->
+            <div>
+                <h1>Multijuegos</h1>
+                <div class="row">
+                    <div>q</div>
+                    <div>q</div>
+                </div>
+                <div class="row">
+                    <div>q</div>
+                    <div>q</div>
+                </div>
+
+            </div>
+
+            <!-- Home Footer -->
+            <div class="row footer">
+                <div class="contactos">
+                    <p class="tituloInfo">Informacion de Contacto</p>
+                    <p>Email: multijuegosproyecto@gmail.com</p>
+                    <p>Tel: 666 777 888 </p>
+                </div>
+                <div class="copyright">
+
+                </div>
+                <div class="reportarBug">
+
                 </div>
             </div>
         </div>

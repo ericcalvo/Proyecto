@@ -33,16 +33,21 @@ class MultijuegosController extends Controller
     {
         //
     }
-    public function categoria_show()
+    public function cat_show()
     {
-        $categorias = Category::all();
-        return view('categorias');
+        $data['cats'] = Category::all();
+
+        return view('categorias',$data);
     }
 
-    public function lista_juegos($id)
+    public function lista_juegos(Request $request)
     {
         $data['juegos'] = Game::all();
-        $data['id'] = $id;
+        //$categoria = Category::where('name', $request->get());
+
+
+
+        $data['cat'] = substr($request->url(),-1);
         return view('juegos_cat',$data);
     }
 

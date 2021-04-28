@@ -8,8 +8,12 @@
 <body>
     <ol>
         @foreach ($juegos as $juego)
-            @if($juegos->category === $id)
-                <li> <a href="{{ route('/juego/$juego -> name ') }}">{{ $juego -> name}}</a></li>
+
+            @if($juego->category === $cat)
+                
+                <li> <a href="{{ url('categoria/'.$juego -> name) }}"> {{ $juego -> name }} </a></li>
+
+            @endif
         @endforeach
     </ol>
 </body>
