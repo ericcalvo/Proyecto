@@ -8,7 +8,8 @@
 <body>
     <ol>
         @foreach ($juegos as $juego)
-
+        {{ $cat }}
+        
             @if($juego->category === $cat)
                 
                 <li> <a href="{{ url('categoria/'.$juego -> name) }}"> {{ $juego -> name }} </a></li>

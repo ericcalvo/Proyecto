@@ -43,20 +43,20 @@ class MultijuegosController extends Controller
     public function lista_juegos(Request $request)
     {
         $data['juegos'] = Game::all();
-        //$categoria = Category::where('name', $request->get());
+        //$categoria = Category::find(where('name', explode('/', $request->url())[sizeof(explode('/', $request->url()))-1]));
 
 
 
-        $data['cat'] = substr($request->url(),-1);
+        //$data['cat'] = $categoria;
         return view('juegos_cat',$data);
     }
 
     public function juego($name)
-    {
+    {/*
         $juegos = Game::all();
 
         $juego = $juegos->find($name);
 
-        return view('juego',$juego);
+        return view('juego',$juego);*/
     }
 }

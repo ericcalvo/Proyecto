@@ -11,6 +11,9 @@
 
         <!-- Styles -->
         <style>
+            /*Body Styles*/
+
+            
             /* Nav styles */
             .logo {
                 height: 200px;
@@ -37,13 +40,18 @@
             /* Footer styles */
             .footer {
                 background-color: #302E2E;
-                margin-top: 300px;
+                position: fixed;
+                height: 120px;
+                bottom: 0;
+                width: 100%;
             }
             .contactos{
                 color: white;
+                margin-top: 10px;
             }
             .copyright{
                 color: white;
+                margin-top: 50px;
             }
             .reportarBug{
                 color: white;
@@ -79,28 +87,27 @@
             <div>
                 <h1>Multijuegos</h1>
                 <div class="row">
-                    <div>q</div>
-                    <div>q</div>
+                    <div>Ajedrez</div>
+                    <div>Angry Birds</div>
                 </div>
                 <div class="row">
-                    <div>q</div>
-                    <div>q</div>
+                    <div>Come Cocos</div>
+                    <div>Busca Minas</div>
                 </div>
-
             </div>
 
             <!-- Home Footer -->
             <div class="row footer">
-                <div class="contactos">
+                <div class="col-md-5 contactos">
                     <p class="tituloInfo">Informacion de Contacto</p>
                     <p>Email: multijuegosproyecto@gmail.com</p>
                     <p>Tel: 666 777 888 </p>
                 </div>
-                <div class="copyright">
-
+                <div class="col-md-4 copyright">
+                    <p>2020 - 2021 | All Rights Reserveds</p>
                 </div>
-                <div class="reportarBug">
-
+                <div class="col-md-3 reportarBug">
+                    <img src=""/>
                 </div>
             </div>
         </div>

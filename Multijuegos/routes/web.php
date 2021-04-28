@@ -23,6 +23,14 @@ Route::get('/multijuegos', function () {
     return view('multijuegos');
 })->middleware(['auth'])->name('multijuegos');
 
+Route::get('/login', function () {
+    return view('login');
+})->middleware(['auth'])->name('login');
+
+Route::get('/register', function () {
+    return view('register');
+})->middleware(['auth'])->name('register');
+
 Route::get('/bug', [MultijuegosController::class, 'bug'])->middleware(['auth']);
 
 Route::get('/game', [MultijuegosController::class, 'game'])->middleware(['auth']);
