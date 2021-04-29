@@ -24,12 +24,12 @@ class InstalledVersions
 private static $installed = array (
   'root' => 
   array (
-    'pretty_version' => 'dev-main',
-    'version' => 'dev-main',
+    'pretty_version' => 'dev-master',
+    'version' => 'dev-master',
     'aliases' => 
     array (
     ),
-    'reference' => '9d5cfdafe21a41df90788e50f3248c177e48d8d5',
+    'reference' => '5bbd29707334d3abf3ca6054763c1f2cd5a2cf67',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -445,12 +445,12 @@ private static $installed = array (
     ),
     'laravel/breeze' => 
     array (
-      'pretty_version' => 'v1.1.5',
-      'version' => '1.1.5.0',
+      'pretty_version' => 'v1.1.6',
+      'version' => '1.1.6.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'b6e804b6b8e6f87e510622ed6ab9771e8219e4c2',
+      'reference' => '222889eecf49bb02ea91e2122c9ab9f8379c0c45',
     ),
     'laravel/framework' => 
     array (
@@ -463,12 +463,12 @@ private static $installed = array (
     ),
     'laravel/laravel' => 
     array (
-      'pretty_version' => 'dev-main',
-      'version' => 'dev-main',
+      'pretty_version' => 'dev-master',
+      'version' => 'dev-master',
       'aliases' => 
       array (
       ),
-      'reference' => '9d5cfdafe21a41df90788e50f3248c177e48d8d5',
+      'reference' => '5bbd29707334d3abf3ca6054763c1f2cd5a2cf67',
     ),
     'laravel/sail' => 
     array (

@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Route;
 use App\Models\Category;
 use App\Models\Game;
+use Illuminate\Support\Facades\DB;
+
+
 
 class MultijuegosController extends Controller
 {
@@ -43,20 +46,31 @@ class MultijuegosController extends Controller
     public function lista_juegos(Request $request)
     {
         $data['juegos'] = Game::all();
-        //$categoria = Category::find(where('name', explode('/', $request->url())[sizeof(explode('/', $request->url()))-1]));
+        
+        $array_url = explode('/', $request->url());
+        $pos = sizeof($array_url) - 1;
+        $categoria_nom = $array_url[$pos];
+        //$data['cat'] = $data['cat'][$pos];
 
+        $query = DB::table('category')->where('name',$categoria_nom)->first();
 
+        $id_cat = $query->id;
 
-        //$data['cat'] = $categoria;
+        $data['cat_id'] = $id_cat;
+
         return view('juegos_cat',$data);
     }
 
-    public function juego($name)
-    {/*
-        $juegos = Game::all();
+    public function juego(Request $request)
+    {
+        $array_url = explode('/', $request->url());
+        $pos = sizeof($array_url) - 1;
+        $juego_nom = $array_url[$pos];
+        $query = DB::select('select * from games where name = ?',[$juego_nom]);
 
-        $juego = $juegos->find($name);
+        $data['juego_nom'] = $query->name;
+        $data['juego_desc'] = $query->description;
 
-        return view('juego',$juego);*/
+        return view('juego',$data);
     }
 }

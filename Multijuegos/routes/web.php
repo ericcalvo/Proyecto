@@ -41,6 +41,6 @@ Route::get('/categoria', [MultijuegosController::class, 'cat_show']);
 
 Route::get('/categoria/{categoria}', [MultijuegosController::class, 'lista_juegos'])->middleware(['auth']);
 
-Route::get('/{juego}', [MultijuegosController::class, 'juego'])->middleware(['auth']);
+Route::get('juego/{juego}', [MultijuegosController::class, 'juego'])->middleware(['auth']);
 
 require __DIR__.'/auth.php';

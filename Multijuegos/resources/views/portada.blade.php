@@ -12,49 +12,66 @@
         <!-- Styles -->
         <style>
             /*Body Styles*/
-
             
             /* Nav styles */
             .logo {
-                height: 200px;
+                height: 180px;
                 margin-top: -30px;
                 margin-bottom: -40px;
             }
-            .nav_izquierda {
-                color: white;
+            .nav_izquierda  img{
                 margin-left: 40px;
             }
-            .login_container{
-                margin-top: 50px;
+            .nav_izquierda p{
+                color: white;
+                margin-left: 20px;
+                font-family: Helvetica;
+            }
+            .login_container {
+                margin-top: 40px;
             }
             .navegador{
                 background-color: #302E2E;
             }
-            .labelMultijuegos{
-                color: white;
+            .labelMultijuegos {
+                color: #00008B;
                 font-size: 17px;
                 margin-left: 20px;
+                font-family: Helvetica;
             }
             /* Content styles */
+            .content h1{
+                text-align: center;
+                margin-top: 20px;
+                margin-bottom: 20px;
+                font-family: Helvetica;
+            }
+
+            .imagenesJuegos {
+                height: 160px;
+                width: 160px;
+                margin-bottom: 20px;
+                margin-left: 100px;
+            }
 
             /* Footer styles */
             .footer {
                 background-color: #302E2E;
-                position: fixed;
-                height: 120px;
-                bottom: 0;
-                width: 100%;
+                height: 135px;
+                font-family: Alegreya Sans;
             }
-            .contactos{
-                color: white;
-                margin-top: 10px;
+            .contactos {
+                color: #A9A9A9;
+                margin-top: 14px;
+                margin-left: 20px;
+                margin-bottom: -25px;
             }
-            .copyright{
-                color: white;
-                margin-top: 50px;
+            .copyright {
+                color: #A9A9A9;
+                margin-top: 45px;
             }
-            .reportarBug{
-                color: white;
+            .reportarBug {
+                color: #A9A9A9;
             }
         </style>
         
@@ -84,15 +101,15 @@
             </div>
 
             <!-- Home Content -->
-            <div>
+            <div class="container-fluid content">
                 <h1>Multijuegos</h1>
-                <div class="row">
-                    <div>Ajedrez</div>
-                    <div>Angry Birds</div>
+                <div class="row offset-md-3">
+                    <img class="imagenesJuegos" src="images/ajedrez.jpg"/>
+                    <img class="imagenesJuegos" src="images/angryBirds.png"/>
                 </div>
-                <div class="row">
-                    <div>Come Cocos</div>
-                    <div>Busca Minas</div>
+                <div class="row offset-md-3">
+                    <img class="imagenesJuegos" src="images/comecocos.jpg"/>
+                    <img class="imagenesJuegos" src="images/buscaminas.jpg"/>
                 </div>
             </div>
 

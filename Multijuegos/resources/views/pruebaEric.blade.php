@@ -1,5 +1,12 @@
-<x-app-layout>
-    <x-slot name="header">
+<x-portada-layout>
+    @extends('layouts.portada')
+    @pruebanav
+    @section('pruebanav')
+        @parent
+
+        <p>This is appended to the master sidebar.</p>
+    @endsection
+    <x-slot name="pruebanav">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Multijuegos') }}
         </h2>
@@ -15,4 +22,4 @@
             </div>
         </div>
     </div>
-</x-app-layout>
+</x-portada-layout>
