@@ -66,10 +66,11 @@ class MultijuegosController extends Controller
         $array_url = explode('/', $request->url());
         $pos = sizeof($array_url) - 1;
         $juego_nom = $array_url[$pos];
-        $query = DB::select('select * from games where name = ?',[$juego_nom]);
+        $query = DB::table('games')->where('name',$juego_nom)->first();
 
         $data['juego_nom'] = $query->name;
         $data['juego_desc'] = $query->description;
+        $data['juego_img'] = $query->image;
 
         return view('juego',$data);
     }

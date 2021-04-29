@@ -6,8 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <img src="{{ $juego_img }}" alt="">
-    {{ $juego_nom }} <br>
-    {{ $juego_desc }} <br>
+    <?php echo e($juego_nom); ?> <br>
+    <?php echo e($juego_desc); ?> <br>
 </body>
-</html>
+</html><?php /**PATH /var/www/html/abernadas/UF12/Proyecto/Multijuegos/resources/views/juego.blade.php ENDPATH**/ ?>
