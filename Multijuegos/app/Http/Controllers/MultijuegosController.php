@@ -18,23 +18,33 @@ class MultijuegosController extends Controller
 
     public function game()
     {
-        //
         return view('game');
     }
     public function bug()
     {
-        //
         return view('bug');
     }
 
-    public function index()
+    public function editar_usuario()
     {
-        //
+        return view('editauser');
     }
 
-    public function store(Request $request)
+    public function guarda_usuario(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'nom' => 'required',
+            'email' => 'required',
+            'passwd' => '',
+            'passwd2' => '',
+        ]);
+
+
+        $user = Auth::user();
+
+
+
+        return view('editauser');
     }
     public function cat_show()
     {
@@ -65,13 +75,15 @@ class MultijuegosController extends Controller
     {
         $array_url = explode('/', $request->url());
         $pos = sizeof($array_url) - 1;
-        $juego_nom = $array_url[$pos];
+        $juego_nom = implode(" ",explode('%20',$array_url[$pos]));
         $query = DB::table('games')->where('name',$juego_nom)->first();
-
+        
         $data['juego_nom'] = $query->name;
         $data['juego_desc'] = $query->description;
         $data['juego_img'] = $query->image;
-
+        //var_dump($data);
         return view('juego',$data);
     }
+
+
 }

@@ -161,7 +161,7 @@
             </div>
 
             <div class="flex items-center justify-end mt-4">
-                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="<?php echo e(route('login')); ?>">
+                <a class="underline text-sm text-white-600 hover:text-gray-900" href="<?php echo e(route('login')); ?>">
                     <?php echo e(__('Already registered?')); ?>
 
                 </a>

@@ -34,9 +34,9 @@
                 background-color: #302E2E;
             }
             .labelMultijuegos {
-                color: #00008B;
+                color: #587BFD;
                 font-size: 17px;
-                margin-left: 20px;
+                margin-left: 70px;
                 font-family: Helvetica;
             }
             /* Content styles */
@@ -101,7 +101,7 @@
             </div>
 
             <!-- Home Content -->
-            <div class="container-fluid content">
+            <div class="content">
                 <h1>Multijuegos</h1>
                 <div class="row offset-md-3">
                     <img class="imagenesJuegos" src="images/ajedrez.jpg"/>

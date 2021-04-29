@@ -1,5 +1,5 @@
-<?php $attributes = $attributes->exceptProps(['align' => 'right', 'width' => '48', 'contentClasses' => 'py-1 bg-white']); ?>
-<?php foreach (array_filter((['align' => 'right', 'width' => '48', 'contentClasses' => 'py-1 bg-white']), 'is_string', ARRAY_FILTER_USE_KEY) as $__key => $__value) {
+<?php $attributes = $attributes->exceptProps(['align' => 'right', 'width' => '48', 'contentClasses' => 'py-1 bg-black']); ?>
+<?php foreach (array_filter((['align' => 'right', 'width' => '48', 'contentClasses' => 'py-1 bg-black']), 'is_string', ARRAY_FILTER_USE_KEY) as $__key => $__value) {
     $$__key = $$__key ?? $__value;
 } ?>
 <?php $__defined_vars = get_defined_vars(); ?>

@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <img src="{{ $juego_img }}" alt="">
+    <img src="{{ url($juego_img) }}" alt="Couldn't load image"> <br>
     {{ $juego_nom }} <br>
     {{ $juego_desc }} <br>
 </body>

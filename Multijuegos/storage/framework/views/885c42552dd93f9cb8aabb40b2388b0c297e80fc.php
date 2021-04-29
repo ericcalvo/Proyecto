@@ -25,6 +25,18 @@
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
             </a>
+            <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
+<?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.slogan','data' => ['class' => 'eslogan']]); ?>
+<?php $component->withName('slogan'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php $component->withAttributes(['class' => 'eslogan']); ?>
+<?php if (isset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4)): ?>
+<?php $component = $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4; ?>
+<?php unset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4); ?>
+<?php endif; ?>
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
          <?php $__env->endSlot(); ?>
 
         <!-- Session Status -->
@@ -72,7 +84,6 @@
 <?php endif; ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
-                holaaaaaaaaa
 
                 <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
 <?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.input','data' => ['id' => 'email','class' => 'block mt-1 w-full','type' => 'email','name' => 'email','value' => old('email'),'required' => true,'autofocus' => true]]); ?>
@@ -120,14 +131,14 @@
             <!-- Remember Me -->
             <div class="block mt-4">
                 <label for="remember_me" class="inline-flex items-center">
-                    <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" name="remember">
-                    <span class="ml-2 text-sm text-gray-600"><?php echo e(__('Remember me')); ?></span>
+                    <input id="remember_me" type="checkbox" class="rounded border-white-300" name="remember">
+                    <span class="ml-2 text-sm text-white-600"><?php echo e(__('Remember me')); ?></span>
                 </label>
             </div>
 
             <div class="flex items-center justify-end mt-4">
                 <?php if(Route::has('password.request')): ?>
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="<?php echo e(route('password.request')); ?>">
+                    <a class="underline text-sm text-white-600 hover:text-gray-900" href="<?php echo e(route('password.request')); ?>">
                         <?php echo e(__('Forgot your password?')); ?>
 
                     </a>
@@ -161,4 +172,9 @@
 <?php endif; ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
-<?php /**PATH /var/www/html/abernadas/UF12/Proyecto/Multijuegos/resources/views/auth/login.blade.php ENDPATH**/ ?>
+
+<style>
+    .body{
+        background-color: black;
+    }
+</style><?php /**PATH /var/www/html/abernadas/UF12/Proyecto/Multijuegos/resources/views/auth/login.blade.php ENDPATH**/ ?>

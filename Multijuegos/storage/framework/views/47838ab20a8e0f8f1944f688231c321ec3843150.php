@@ -8,8 +8,13 @@
 } ?>
 <?php unset($__defined_vars); ?>
 
-<label <?php echo e($attributes->merge(['class' => 'block font-medium text-sm text-gray-700'])); ?>>
+<label class="prueba" <?php echo e($attributes->merge(['class' => 'block font-medium text-sm text-white-700'])); ?>>
     <?php echo e($value ?? $slot); ?>
 
 </label>
-<?php /**PATH /var/www/html/abernadas/UF12/Proyecto/Multijuegos/resources/views/components/label.blade.php ENDPATH**/ ?>
+
+<style>
+    .prueba {
+        color: white;
+    }
+</style><?php /**PATH /var/www/html/abernadas/UF12/Proyecto/Multijuegos/resources/views/components/label.blade.php ENDPATH**/ ?>
