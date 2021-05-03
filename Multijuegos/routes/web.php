@@ -47,4 +47,7 @@ Route::get('/edit', [MultijuegosController::class, 'editUser'])->middleware(['au
 
 Route::post('/updateuser', [MultijuegosController::class, 'updateUserProfile'])->middleware(['auth']);
 
+Route::get('/reportarBug', [MultijuegosController::class, 'reportBug'])->middleware(['auth']);
+
+
 require __DIR__.'/auth.php';

@@ -6,6 +6,12 @@
     <title>Document</title>
 </head>
 <body>
+    @if($errors->any())
+        @foreach ($errors as $error)
+            <p>$error</p>
+        @endforeach
+    @endif
+
     <form action="{{ url( 'updateuser' ) }}" method="post">
     @csrf
         Editar Usuari <br>

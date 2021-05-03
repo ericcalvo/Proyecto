@@ -5,15 +5,16 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
-                    <a href="{{ route('multijuegos') }}">
-                        <x-application-logo2 class="block h-10 w-auto fill-current" />
-                    </a>
+                    <x-application-logo2 class="block h-10 w-auto fill-current" />
                 </div>
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('multijuegos')" :active="request()->routeIs('multijuegos')">
                         {{ __('Multijuegos') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('multijuegos')" :active="request()->routeIs('multijuegos')">
+                        {{ __('Categorias') }}
                     </x-nav-link>
                 </div>
             </div>

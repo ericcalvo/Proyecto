@@ -55,7 +55,9 @@
                     <p>2020 - 2021 | All Rights Reserveds</p>
                 </div>
                 <div class="col-md-2 reportarBug">
-                    <img class="bug" src="images/bug.png"/>
+                    <a href="{{ url('reportarBug') }}">
+                        <img class="bug" src="images/bug.png"/>
+                    </a>
                 </div>
             </div>
         </div>

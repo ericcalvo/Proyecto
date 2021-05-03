@@ -4,13 +4,6 @@
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php $component->withAttributes([]); ?>
-     <?php $__env->slot('header'); ?> 
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            <?php echo e(__('Multijuegos')); ?>
-
-        </h2>
-     <?php $__env->endSlot(); ?>
-
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">

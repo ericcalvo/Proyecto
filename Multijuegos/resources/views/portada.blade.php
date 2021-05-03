@@ -99,11 +99,11 @@
                     @if (Route::has('login'))
                         <div class="hidden fixed top-0 right-0 px-2 py-4 sm:block">
                             @auth
-                                <a href="{{ url('/multijuegos') }}" class="text-sm text-gray-700 underline labelMultijuegos">Multijuegos</a>
+                                <a href="{{ url('/multijuegos') }}" class="text-sm underline labelMultijuegos">Multijuegos</a>
                             @else
-                                <a href="{{ route('login') }}" class="text-sm text-gray-700 underline labelMultijuegos">Log in</a>
+                                <a href="{{ route('login') }}" class="text-sm labelMultijuegos">Log in</a>
                                 @if (Route::has('register'))
-                                    <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline labelMultijuegos">Register</a>
+                                    <a href="{{ route('register') }}" class="ml-4 text-sm underline labelMultijuegos">Register</a>
                                 @endif
                             @endauth
                         </div>
@@ -135,7 +135,9 @@
                     <p>2020 - 2021 | All Rights Reserveds</p>
                 </div>
                 <div class="col-md-2 reportarBug">
-                    <img class="bug" src="images/bug.png"/>
+                    <a href="{{ url('reportarBug') }}">
+                        <img class="bug" src="images/bug.png"/>
+                    </a>
                 </div>
             </div>
         </div>

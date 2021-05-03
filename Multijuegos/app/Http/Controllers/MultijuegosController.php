@@ -35,11 +35,12 @@ class MultijuegosController extends Controller
         $validated = $request->validate([
             'nom' => 'required',
             'email' => 'required',
-            'passwd' => 'same:passwd2|regex:^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$',
-            'passwd2' => '',
-        ]);
-        $id = $request->input('id');
+            'passwd' => 'same:passwd2|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/'
 
+        ]);
+        
+        //$id = $request->input('id');
+            /*
         if($id = Auth::user()->id)
         {
             $name = $request->input('name');
@@ -48,11 +49,13 @@ class MultijuegosController extends Controller
             //$profilephoto = $request->input('profilephoto');
 
             
-            $affected = DB::table('users')
+            $update = DB::table('users')
                 ->where('id', $id)
                 ->update(['name' => $name, 'email' => $email, 'password' => $password]);
+
+            $update->save();
             
-        }
+        }*/
         return view('dashboard');
 
     }
@@ -95,5 +98,9 @@ class MultijuegosController extends Controller
         return view('juego',$data);
     }
 
+    public function reportBug()
+    {
+        return view('reportBug');
+    }
 
 }
