@@ -43,8 +43,8 @@ Route::get('/categoria/{categoria}', [MultijuegosController::class, 'lista_juego
 
 Route::get('juego/{juego}', [MultijuegosController::class, 'juego'])->middleware(['auth']);
 
-Route::get('/edit', [MultijuegosController::class, 'editar_usuario'])->middleware(['auth']);
+Route::get('/edit', [MultijuegosController::class, 'editUser'])->middleware(['auth']);
 
-Route::post('/guarda_cambios', [MultijuegosController::class, 'guardar_usuario'])->middleware(['auth']);
+Route::post('/updateuser', [MultijuegosController::class, 'updateUserProfile'])->middleware(['auth']);
 
 require __DIR__.'/auth.php';

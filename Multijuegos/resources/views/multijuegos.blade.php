@@ -14,4 +14,5 @@
             </div>
         </div>
     </div>
+    <x-application-footer class="block h-10 w-auto fill-current" />
 </x-app-layout>

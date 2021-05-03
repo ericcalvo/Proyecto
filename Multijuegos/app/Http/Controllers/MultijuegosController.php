@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Category;
 use App\Models\Game;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Facades\Auth;
 
 
 class MultijuegosController extends Controller
@@ -25,26 +25,36 @@ class MultijuegosController extends Controller
         return view('bug');
     }
 
-    public function editar_usuario()
+    public function editUser()
     {
         return view('editauser');
     }
 
-    public function guarda_usuario(Request $request)
+    public function updateUserProfile(Request $request)
     {
         $validated = $request->validate([
             'nom' => 'required',
             'email' => 'required',
-            'passwd' => '',
+            'passwd' => 'same:passwd2|regex:^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$',
             'passwd2' => '',
         ]);
+        $id = $request->input('id');
 
+        if($id = Auth::user()->id)
+        {
+            $name = $request->input('name');
+            $email = $request->input('email');
+            $password = Hash::make($request->input('password'));
+            //$profilephoto = $request->input('profilephoto');
 
-        $user = Auth::user();
+            
+            $affected = DB::table('users')
+                ->where('id', $id)
+                ->update(['name' => $name, 'email' => $email, 'password' => $password]);
+            
+        }
+        return view('dashboard');
 
-
-
-        return view('editauser');
     }
     public function cat_show()
     {

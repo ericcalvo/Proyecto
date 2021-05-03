@@ -6,13 +6,15 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="route(guarda_cambios)" method="post">
+    <form action="{{ url( 'updateuser' ) }}" method="post">
     @csrf
         Editar Usuari <br>
-        Nom: <input type="text" name="nom" id="" placeholder="{{Auth::user()->name}}"> <br>
+        Nom: <input type="text" name="name" id="" placeholder="{{Auth::user()->name}}"> <br>
         Correu: <input type="email" name="email" id="" placeholder="{{Auth::user()->email}}"><br>
         Contrasenya: <input type="password" name="passwd" id=""><br>
         Repeteix Contrasenya: <input type="password" name="passwd2" id=""><br>
+        <input type="file" name="profileimage" id=""><br>
+        <input type="hidden" value='{{ Auth::user()->id }}'>
         <input type="submit" value="Canvia">
     </form>
 </body>

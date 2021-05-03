@@ -35,11 +35,14 @@
 
                     <x-slot name="content">
                         <!-- Authentication -->
-                        <x-dropdown-link :href="route('logout')"
+                        <form method="get" action="{{ url('edit') }}">
+                            @csrf
+                            <x-dropdown-link :href="url('edit')"
                                 onclick="event.preventDefault();
                                             this.closest('form').submit();">
-                            {{ __('Editar Usuario') }}
-                        </x-dropdown-link>
+                                {{ __('Editar Usuario') }}
+                            </x-dropdown-link>
+                        </form>
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
                             <x-dropdown-link :href="route('logout')"
@@ -88,11 +91,14 @@
 
             <div class="mt-3 space-y-1">
                 <!-- Authentication -->
-                <x-responsive-nav-link :href="route('logout')"
+                <form method="get" action="{{ url('edit') }}">
+                    @csrf
+                    <x-responsive-nav-link :href="url('edit')"
                         onclick="event.preventDefault();
                                     this.closest('form').submit();">
                     {{ __('Editar Usuario') }}
-                </x-responsive-nav-link>
+                    </x-responsive-nav-link>
+                </form>
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
 

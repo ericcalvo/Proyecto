@@ -11,8 +11,14 @@
 
         <!-- Styles -->
         <style>
-            /*Body Styles*/
-            
+            @media (max-width: 770px) {
+                .bug {
+                    display: none;
+                }
+                .contactos{
+                    display: none;
+                }
+            }
             /* Nav styles */
             .logo {
                 height: 180px;
@@ -64,7 +70,6 @@
                 color: #A9A9A9;
                 margin-top: 14px;
                 margin-left: 20px;
-                margin-bottom: -25px;
             }
             .copyright {
                 color: #A9A9A9;
@@ -73,6 +78,12 @@
             .reportarBug {
                 color: #A9A9A9;
             }
+            .bug{
+                height: 80px;
+                margin-top: 20px;
+                margin-left: 80%;
+            }
+            
         </style>
         
     </head>
@@ -123,8 +134,8 @@
                 <div class="col-md-4 copyright">
                     <p>2020 - 2021 | All Rights Reserveds</p>
                 </div>
-                <div class="col-md-3 reportarBug">
-                    <img src=""/>
+                <div class="col-md-2 reportarBug">
+                    <img class="bug" src="images/bug.png"/>
                 </div>
             </div>
         </div>
