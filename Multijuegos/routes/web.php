@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MultijuegosController;
 use GuzzleHttp\Middleware;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,23 +32,27 @@ Route::get('/register', function () {
     return view('register');
 })->middleware(['auth'])->name('register');
 
-Route::get('/bug', [MultijuegosController::class, 'bug'])->middleware(['auth']);
 
-Route::get('/game', [MultijuegosController::class, 'game'])->middleware(['auth']);
+Route::get('/categoria', [MultijuegosController::class, 'cat_show'])->middleware(['auth'])->name('categoria');
 
-Route::post('/game', [MultijuegosController::class, 'game'])->middleware(['auth']);
+Route::get('/categoria/{categoria}', [MultijuegosController::class, 'lista_juegos'])->middleware(['auth'])->name('categoriaCategoria');
 
-Route::get('/categoria', [MultijuegosController::class, 'cat_show'])->middleware(['auth']);
+Route::get('juego/{juego}', [MultijuegosController::class, 'juego'])->middleware(['auth'])->name('juegoJuego');
 
-Route::get('/categoria/{categoria}', [MultijuegosController::class, 'lista_juegos'])->middleware(['auth']);
-
-Route::get('juego/{juego}', [MultijuegosController::class, 'juego'])->middleware(['auth']);
-
-Route::get('/edit', [MultijuegosController::class, 'editUser'])->middleware(['auth']);
-
-Route::post('/updateuser', [MultijuegosController::class, 'updateUserProfile'])->middleware(['auth']);
+Route::get('/edit', [MultijuegosController::class, 'editUser'])->middleware(['auth'])->name('edit');
 
 Route::get('/reportarBug', [MultijuegosController::class, 'reportBug'])->middleware(['auth']);
 
+Route::post('/updateuser', [MultijuegosController::class, 'updateUserProfile'])->middleware(['auth']);
+
+
+
+Route::get('/indexgames', [AdminController::class, 'indexgames'])->middleware(['auth']);
+
+Route::get('/addgame', [AdminController::class, 'creategame'])->middleware(['auth']);
+
+Route::post('/savegame', [AdminController::class, 'storegame'])->middleware(['auth']);
+
+Route::get('/deletegame', [AdminController::class, 'destroygame'])->middleware(['auth']);
 
 require __DIR__.'/auth.php';

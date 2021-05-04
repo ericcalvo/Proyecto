@@ -11,15 +11,16 @@
 
         <!-- Styles -->
         <style>
-
+            html, body {
+                height: 100%;
+                margin: 0;
+            }
             /* Footer styles */
             .footer {
                 background-color: #302E2E;
                 height: 125px;
                 font-family: Alegreya Sans;
-                position: fixed;
-                bottom: 0;
-                width: 100%;
+                height: 130px;
             }
             .contactos {
                 color: #A9A9A9;
@@ -38,12 +39,13 @@
                 height: 80px;
                 margin-top: 20px;
                 margin-left: 80%;
+                color: #A9A9A9;
             }
         </style>
         
     </head>
     <body>
-        <div class="container-fluid">
+        <div class="container-fluid fixed-bottom">
             <!-- Home Footer -->
             <div class="row footer">
                 <div class="col-md-5 contactos">
@@ -52,8 +54,10 @@
                     <p>Tel: 666 777 888 </p>
                 </div>
                 <div class="col-md-4 copyright">
+                    <img src=""/>
                     <p>2020 - 2021 | All Rights Reserveds</p>
                 </div>
+                
                 <div class="col-md-2 reportarBug">
                     <a href="{{ url('reportarBug') }}">
                         <img class="bug" src="images/bug.png"/>

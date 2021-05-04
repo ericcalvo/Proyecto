@@ -101,9 +101,9 @@
                             <?php if(auth()->guard()->check()): ?>
                                 <a href="<?php echo e(url('/multijuegos')); ?>" class="text-sm underline labelMultijuegos">Multijuegos</a>
                             <?php else: ?>
-                                <a href="<?php echo e(route('login')); ?>" class="text-sm  labelMultijuegos">Log in</a>
+                                <a href="<?php echo e(route('login')); ?>" class="text-sm labelMultijuegos">Log in</a>
                                 <?php if(Route::has('register')): ?>
-                                    <a href="<?php echo e(route('register')); ?>" class="ml-4 text-sm text-gray-700 underline labelMultijuegos">Register</a>
+                                    <a href="<?php echo e(route('register')); ?>" class="ml-4 text-sm underline labelMultijuegos">Register</a>
                                 <?php endif; ?>
                             <?php endif; ?>
                         </div>

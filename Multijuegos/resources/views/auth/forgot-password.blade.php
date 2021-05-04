@@ -31,6 +31,7 @@
                     {{ __('Email Password Reset Link') }}
                 </x-button>
             </div>
+            <x-application-copyright/>
         </form>
     </x-auth-card>
 </x-guest-layout>

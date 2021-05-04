@@ -4,16 +4,27 @@
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
-                <div class="flex-shrink-0 flex items-center">
-                    <x-application-logo2 class="block h-10 w-auto fill-current" />
-                </div>
+                @csrf
+                @if(request()->routeIs('multijuegos') or request()->routeIs('categoria') or request()->routeIs('edit'))
 
+                    <div class="flex-shrink-0 flex items-center">
+                        <x-application-logo2 class="block h-10 w-auto fill-current"/>
+                    </div>
+
+                @elseif(request()->routeIs('juegoJuego') or request()->routeIs('categoriaCategoria'))
+
+                    <div class="flex-shrink-0 flex items-center">
+                        <x-application-logo3 class="block h-10 w-auto fill-current"/>
+                    </div>
+
+                @endif
+                
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('multijuegos')" :active="request()->routeIs('multijuegos')">
                         {{ __('Multijuegos') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('multijuegos')" :active="request()->routeIs('multijuegos')">
+                    <x-nav-link :href="url('categoria')" :active="request()->routeIs('categoria')">
                         {{ __('Categorias') }}
                     </x-nav-link>
                 </div>
@@ -36,9 +47,9 @@
 
                     <x-slot name="content">
                         <!-- Authentication -->
-                        <form method="get" action="{{ url('edit') }}">
+                        <form method="get" action="{{ route('edit') }}">
                             @csrf
-                            <x-dropdown-link :href="url('edit')"
+                            <x-dropdown-link :href="route('edit')"
                                 onclick="event.preventDefault();
                                             this.closest('form').submit();">
                                 {{ __('Editar Usuario') }}
@@ -73,6 +84,10 @@
             <x-responsive-nav-link :href="route('multijuegos')" :active="request()->routeIs('multijuegos')">
                 {{ __('Multijuegos') }}
             </x-responsive-nav-link>
+            <x-responsive-nav-link :href="url('categoria')" :active="request()->routeIs('categoria')">
+                {{ __('Categorias') }}
+            </x-responsive-nav-link>
+
         </div>
 
         <!-- Responsive Settings Options -->
@@ -94,10 +109,10 @@
                 <!-- Authentication -->
                 <form method="get" action="{{ url('edit') }}">
                     @csrf
-                    <x-responsive-nav-link :href="url('edit')"
+                    <x-responsive-nav-link :href="route('edit')"
                         onclick="event.preventDefault();
                                     this.closest('form').submit();">
-                    {{ __('Editar Usuario') }}
+                        {{ __('Editar Usuario') }}
                     </x-responsive-nav-link>
                 </form>
                 <form method="POST" action="{{ route('logout') }}">

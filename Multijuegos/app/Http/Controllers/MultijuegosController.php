@@ -15,14 +15,9 @@ use Illuminate\Support\Facades\Auth;
 
 class MultijuegosController extends Controller
 {
-
-    public function game()
+    public function reportBug()
     {
-        return view('game');
-    }
-    public function bug()
-    {
-        return view('bug');
+        return view('reportBug');
     }
 
     public function editUser()
@@ -32,33 +27,58 @@ class MultijuegosController extends Controller
 
     public function updateUserProfile(Request $request)
     {
-        $validated = $request->validate([
-            'nom' => 'required',
-            'email' => 'required',
-            'passwd' => 'same:passwd2|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/'
 
+        $validated = $request->validate([
+            'name' => 'nullable',
+            'email' => 'nullable',
+            'password' => 'nullable|same:passwd2|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/',
+            'profileimage' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
         
-        //$id = $request->input('id');
-            /*
+        $id = $request->input('id');
         if($id = Auth::user()->id)
-        {
-            $name = $request->input('name');
-            $email = $request->input('email');
-            $password = Hash::make($request->input('password'));
-            //$profilephoto = $request->input('profilephoto');
+        {               
+            if($request->name == null)
+            {
+                $name = Auth::user()->name;
+            }else
+            {
+                $name = $request->input('name');
+            }
 
-            
+            if($request->email == null)
+            {
+                $email = Auth::user()->email;
+            }else
+            {
+                $email = $request->input('email');
+            }
+            if($request->password == null)
+            {
+                $password = Auth::user()->password;
+            }else
+            {
+                $password = Hash::make($request->input('password'));
+            }
+            if($request->profileimage == null)
+            {
+                $path = Auth::user()->profilephoto;
+            }else{
+                $imageName = time().'.'.$request->profileimage->extension();  
+                
+                $path = $request->file('profileimage')->storeAs('images/'.Auth::user()->id,$imageName);
+                if(Storage::exists(Auth::user()->profilephoto)){
+                    Storage::delete(Auth::user()->profilephoto);
+                }
+            }
+
             $update = DB::table('users')
                 ->where('id', $id)
-                ->update(['name' => $name, 'email' => $email, 'password' => $password]);
-
-            $update->save();
-            
-        }*/
-        return view('dashboard');
-
+                ->update(['name' => $name, 'email' => $email, 'password' => $password,'profilephoto' => $path]);
+        }
+        return redirect('multijuegos');
     }
+
     public function cat_show()
     {
         $data['cats'] = Category::all();
@@ -94,13 +114,6 @@ class MultijuegosController extends Controller
         $data['juego_nom'] = $query->name;
         $data['juego_desc'] = $query->description;
         $data['juego_img'] = $query->image;
-        //var_dump($data);
         return view('juego',$data);
     }
-
-    public function reportBug()
-    {
-        return view('reportBug');
-    }
-
 }
