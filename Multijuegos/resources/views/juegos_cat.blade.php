@@ -6,7 +6,7 @@
                     <ol>
                         @foreach ($juegos as $juego)
                             @if($juego->category == $cat_id)
-                                <li> <a href="{{ url('juego/'.$juego -> name) }}"> {{ $juego -> name }} </a></li>
+                                <li> <a id="listG" href="{{ url('juego/'.$juego -> name) }}"> {{ $juego -> name }} </a></li>
                             @endif
                         @endforeach
                     </ol>
@@ -16,3 +16,8 @@
     </div>
     <x-application-footer2/>
 </x-app-layout>
+<style>
+    #listG{
+        color: black;
+    }
+</style>

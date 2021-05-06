@@ -83,6 +83,11 @@ class MultijuegosController extends Controller
     {
         $data['cats'] = Category::all();
 
+        $query = DB::table('category')->where('cat_image')->first();
+
+        $data['juego_img'] = $query->cat_image;
+
+
         return view('categorias',$data);
     }
 

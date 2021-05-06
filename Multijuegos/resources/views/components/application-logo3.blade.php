@@ -1,4 +1,4 @@
-<img id="logo" src="../images/Multijuegos.png"/>
+<img id="logo" src="../images/Multijuegos.png" alt="logo"/>
 
 
 <style>

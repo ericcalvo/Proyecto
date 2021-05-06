@@ -45,14 +45,18 @@ Route::get('/reportarBug', [MultijuegosController::class, 'reportBug'])->middlew
 
 Route::post('/updateuser', [MultijuegosController::class, 'updateUserProfile'])->middleware(['auth']);
 
-
-
+//Rutas par el Administrador
+//Index del CRUD
 Route::get('/indexgames', [AdminController::class, 'indexgames'])->middleware(['auth']);
-
+//Form crear juego
 Route::get('/addgame', [AdminController::class, 'creategame'])->middleware(['auth']);
-
+//Guardar juego
 Route::post('/savegame', [AdminController::class, 'storegame'])->middleware(['auth']);
-
-Route::get('/deletegame', [AdminController::class, 'destroygame'])->middleware(['auth']);
+//Form editar juego
+Route::get('/showgame/{id}', [AdminController::class, 'showgame'])->middleware(['auth']);
+//Guardar edicion
+Route::post('/editgame/{id}', [AdminController::class, 'editgame'])->middleware(['auth']);
+//Borrar juego
+Route::get('/deletegame/{id}', [AdminController::class, 'destroygame'])->middleware(['auth']);
 
 require __DIR__.'/auth.php';

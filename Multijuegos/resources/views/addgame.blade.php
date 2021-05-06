@@ -13,6 +13,10 @@
                     @endforeach
                     </select></br></br>
                     <label> Haz una pequeña descripción:</label> <br><textarea name="desc" id="" cols="30" rows="5" placeholder="Maximo 255 caracteres"></textarea></br></br>
+                    <select name="premium" id="">
+                    <option value="0" selected="selected">No</option>
+                    <option value="1">Si</option>
+                    </select> <br>
                     <label> Por ultimo sube una imagen para usar como icono: </label> <input type="file" name="image" id="" class="form-control-file"></br></br>
                     <button id="button" type="submit">Crear Juego</button>
             </form>

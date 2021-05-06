@@ -92,7 +92,7 @@
             <!-- Home Nav -->
             <div class="row navegador">
                 <div class="col-md-3 col-8 nav_izquierda">
-                    <img class="logo" src="images/Multijuegos.png">
+                    <img class="logo" src="images/Multijuegos.png" alt="Logo" />
                     <p>Si estas aqui es para pasarlo bien</p>
                 </div>
                 <div class="offset-md-6 offset-col-2 login_container">
@@ -115,12 +115,12 @@
             <div class="content">
                 <h1>Multijuegos</h1>
                 <div class="row offset-md-3">
-                    <img class="imagenesJuegos" src="images/ajedrez.jpg"/>
-                    <img class="imagenesJuegos" src="images/angryBirds.png"/>
+                    <img class="imagenesJuegos" src="images/ajedrez.jpg" alt="Ajedrez"/>
+                    <img class="imagenesJuegos" src="images/angryBirds.png" alt="Angry Birds"/>
                 </div>
                 <div class="row offset-md-3">
-                    <img class="imagenesJuegos" src="images/comecocos.jpg"/>
-                    <img class="imagenesJuegos" src="images/buscaminas.jpg"/>
+                    <img class="imagenesJuegos" src="images/comecocos.jpg" alt="ComeCocos"/>
+                    <img class="imagenesJuegos" src="images/buscaminas.jpg" alt="Busca Minas"/>
                 </div>
             </div>
 
@@ -136,7 +136,7 @@
                 </div>
                 <div class="col-md-2 reportarBug">
                     <a href="<?php echo e(url('reportarBug')); ?>">
-                        <img class="bug" src="images/bug.png"/>
+                        <img class="bug" src="images/bug.png" alt="Bug"/>
                     </a>
                 </div>
             </div>

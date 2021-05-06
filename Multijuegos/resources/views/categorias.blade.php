@@ -5,12 +5,22 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     <ol>
                         @foreach ($cats as $cat)
-                            <li> <a href="{{ url('categoria/'.$cat->name) }}"> {{ $cat -> name }}</a></li>
+                            <li> <a id="listC" href="{{ url('categoria/'.$cat->name) }}"> {{ $cat -> name }}</a></li>
                         @endforeach
-                    </ol>
+                    </ol>                
                 </div>
             </div>
         </div>
     </div>
     <x-application-footer />
 </x-app-layout>
+
+<style>
+    #listC{
+        color: black;
+    }
+    #imgC{
+        height: 20px;
+        width: 30px;
+    }
+</style>
