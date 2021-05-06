@@ -5,7 +5,7 @@
             <div class="flex">
                 <!-- Logo -->
                 <?php echo csrf_field(); ?>
-                <?php if(request()->routeIs('multijuegos') or request()->routeIs('categoria') or request()->routeIs('edit')): ?>
+                <?php if(request()->routeIs('multijuegos') or request()->routeIs('categoria') or request()->routeIs('edit') or request()->routeIs('addgame') or request()->routeIs('addcat') or request()->routeIs('indexgames') or request()->routeIs('indexcats')): ?>
 
                     <div class="flex-shrink-0 flex items-center">
                         <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
@@ -22,7 +22,7 @@
 <?php endif; ?>
                     </div>
 
-                <?php elseif(request()->routeIs('juegoJuego') or request()->routeIs('categoriaCategoria')): ?>
+                <?php elseif(request()->routeIs('juegoJuego') or request()->routeIs('categoriaCategoria') or request()->routeIs('showgame') or request()->routeIs('showcat')): ?>
 
                     <div class="flex-shrink-0 flex items-center">
                         <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>

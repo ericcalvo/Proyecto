@@ -29,6 +29,17 @@ class AdminController extends Controller
         }
     }
 
+    public function indexcats()
+    {
+        if(Auth::user()->is_admin == 1)
+        {
+            $data['cats'] = Category::all();
+            return view('indexcats',$data);
+        }else{
+            return view('portada');
+        }
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -44,6 +55,17 @@ class AdminController extends Controller
             return view('portada');
         }
     }
+
+    public function createcat()
+    {
+        if(Auth::user()->is_admin == 1)
+        {
+            return view('addcat');
+        }else{
+            return view('portada');
+        }
+    }
+
 
     /**
      * Store a newly created resource in storage.
@@ -85,6 +107,36 @@ class AdminController extends Controller
         }
     }
 
+
+    public function storecat(Request $request)
+    {
+        if(Auth::user()->is_admin == 1)
+        {
+            $validated = $request->validate([
+                'name' => 'required',
+                'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            ]);
+            
+            $name = $request->input('name');
+
+            if($request->image == null){
+                $path = "";
+            }else{
+                $imageName = time().'.'.$request->image->extension();  
+
+                $path = $request->file('image')->storeAs('category/'.$name,$imageName); 
+            }
+
+
+            $create = DB::table('category')
+            ->insert(['id' => count(Category::all())+1,'name' => $name, 'cat_image' => $path]);
+
+            return redirect('indexcats');
+        }else{
+            return view('portada');
+        }
+    }
+
     /**
      * Display the specified resource.
      *
@@ -99,6 +151,19 @@ class AdminController extends Controller
             $data['category'] = Category::all();
 
             return view('showgame',$data);
+        }else{
+            return view('portada');
+        }
+    }
+
+
+    public function showcat($id)
+    {
+        if(Auth::user()->is_admin == 1)
+        {
+            $data['cat'] = Category::find($id);
+
+            return view('showcat',$data);
         }else{
             return view('portada');
         }
@@ -151,17 +216,39 @@ class AdminController extends Controller
         }
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+
+    public function editcat(Request $request,$id)
     {
-        //
+        if(Auth::user()->is_admin == 1)
+        {
+            if($request->name == null){
+                $name = Category::find($id)->name;
+            }else{
+                $name = $request->input('name');
+            }
+
+            if($request->image == null)
+            {
+                $path = Category::find($id)->cat_image;
+            }else{
+                $imageName = time().'.'.$request->image->extension();  
+                
+                $path = $request->file('image')->storeAs('category/'.$name,$imageName);
+                if(Storage::exists(Category::find($id)->cat_image)){
+                    Storage::delete(Category::find($id)->cat_image);
+                }
+            }
+
+            $update = DB::table('category')
+                ->where('id', $id)
+                ->update(['name' => $name,'cat_image' => $path]);
+            
+                return redirect("indexgames");
+        }else{
+            return view('portada');
+        }
     }
+
 
     /**
      * Remove the specified resource from storage.
@@ -171,19 +258,35 @@ class AdminController extends Controller
      */
     public function destroygame($id)
     {
-        // if($request->profileimage == null)
-        // {
-        //     $path = Auth::user()->profilephoto;
-        // }else{
-        //     $imageName = time().'.'.$request->profileimage->extension();  
+        if(Auth::user()->is_admin == 1)
+        {
+            $path = Game::find($id)->image;
+            if(Storage::exists($path)){
+                Storage::delete($path);
+            }
             
-        //     $path = $request->file('profileimage')->storeAs('images/'.Auth::user()->id,$imageName);
-        //     if(Storage::exists(Auth::user()->profilephoto)){
-        //         Storage::delete(Auth::user()->profilephoto);
-        //     }
-        // }
-        DB::table('games')->where('id', '=', $id)->delete();
+            DB::table('games')->where('id', '=', $id)->delete();
 
-        return redirect('indexgames');
+            return redirect('indexgames');
+        }else{
+            return view('portada');
+        }
+    }
+
+    public function destroycat($id)
+    {
+        try{
+            $path = Category::find($id)->cat_image;
+            if(Storage::exists($path)){
+                Storage::delete($path);
+            }
+            
+            DB::table('category')->where('id', '=', $id)->delete();
+
+        }catch(Exception $e){
+            return ('No se puede realizar la accion debido a:'.$e);
+        }
+
+        return redirect('indexcats');
     }
 }

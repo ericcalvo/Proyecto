@@ -11,7 +11,8 @@
                     <ol>
                         <?php $__currentLoopData = $juegos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $juego): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <?php if($juego->category == $cat_id): ?>
-                                <li> <a id="listG" href="<?php echo e(url('juego/'.$juego -> name)); ?>"> <?php echo e($juego -> name); ?> </a></li>
+                                <img id="imgG" src="<?php echo e(url($juego->image)); ?>"/>
+                                <li> <a id="listG" href="<?php echo e(url('juego/'.$juego -> name)); ?>"> <?php echo e($juego -> name); ?> </a></li></br>
                             <?php endif; ?>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </ol>
@@ -40,5 +41,11 @@
 <style>
     #listG{
         color: black;
+        margin-left: 10px;
+    }
+    #imgG{
+        height: 32px;
+        width: 34px;
+        float: left;
     }
 </style><?php /**PATH /var/www/html/abernadas/UF12/Proyecto/Multijuegos/resources/views/juegos_cat.blade.php ENDPATH**/ ?>

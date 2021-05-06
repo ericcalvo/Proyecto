@@ -18,4 +18,5 @@
         padding-bottom: 120px;
         margin-right: 26%;
     }
+    
 </style>

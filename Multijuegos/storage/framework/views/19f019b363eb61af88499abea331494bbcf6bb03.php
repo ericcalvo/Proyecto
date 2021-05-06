@@ -10,7 +10,8 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     <ol>
                         <?php $__currentLoopData = $cats; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <li> <a id="listC" href="<?php echo e(url('categoria/'.$cat->name)); ?>"> <?php echo e($cat -> name); ?></a></li>
+                            <img id="imgC" src="<?php echo e(url($cat->cat_image)); ?>"/>
+                            <li><a id="listC" href="<?php echo e(url('categoria/'.$cat->name)); ?>"> <?php echo e($cat -> name); ?></a></li></br>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </ol>                
                 </div>
@@ -39,9 +40,11 @@
 <style>
     #listC{
         color: black;
+        margin-left: 10px;
     }
     #imgC{
-        height: 20px;
-        width: 30px;
+        height: 30px;
+        width: 32px;
+        float: left;
     }
 </style><?php /**PATH /var/www/html/abernadas/UF12/Proyecto/Multijuegos/resources/views/categorias.blade.php ENDPATH**/ ?>

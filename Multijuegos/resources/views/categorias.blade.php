@@ -5,7 +5,8 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     <ol>
                         @foreach ($cats as $cat)
-                            <li> <a id="listC" href="{{ url('categoria/'.$cat->name) }}"> {{ $cat -> name }}</a></li>
+                            <img id="imgC" src="{{ url($cat->cat_image) }}"/>
+                            <li><a id="listC" href="{{ url('categoria/'.$cat->name) }}"> {{ $cat -> name }}</a></li></br>
                         @endforeach
                     </ol>                
                 </div>
@@ -18,9 +19,11 @@
 <style>
     #listC{
         color: black;
+        margin-left: 10px;
     }
     #imgC{
-        height: 20px;
-        width: 30px;
+        height: 30px;
+        width: 32px;
+        float: left;
     }
 </style>

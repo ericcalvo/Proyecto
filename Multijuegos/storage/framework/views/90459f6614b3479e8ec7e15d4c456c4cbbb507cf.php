@@ -39,4 +39,5 @@
         padding-bottom: 120px;
         margin-right: 26%;
     }
+    
 </style><?php /**PATH /var/www/html/abernadas/UF12/Proyecto/Multijuegos/resources/views/juego.blade.php ENDPATH**/ ?>

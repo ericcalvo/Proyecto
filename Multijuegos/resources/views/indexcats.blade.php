@@ -1,0 +1,47 @@
+<x-app-layout>
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <h3>Categorias</h3></br>
+            <a href="{{url('addcat')}}">Crear cateogria</a>
+            <table>
+                <tr>
+                    <th class="name">Nombre</th>
+                    <th class="img">Imagen/logo</th>
+                    <th class="edit">Editar</th>
+                    <th class="delete">Borrar</th>
+                </tr>
+
+                @foreach($cats as $cat)
+                    <tr>
+                        <td>{{ $cat->name }}</td>        
+                        <td><img id="imgC" src="{{ url('/storage/'.$cat->image)}}" alt="no va"></td>
+                        <td><a href="{{ url('showcat/'.$cat->id) }}">Editar</a></td>
+                        <td><a href="{{ url('deletecat/'.$cat->id) }}">Borrar</a></td>
+                    </tr>
+                @endforeach
+            </table><br>
+            <p> Acuerdate que borrar una categoria también eliminará los juegos relacionados con ella</p>
+        </div>
+    </div>
+    <x-application-footer/>
+</x-app-layout>
+
+<style>
+    table{
+        width: 100%;
+    }
+    th.name, th.img {
+        width: 12%;
+    }
+    th.img{
+        width: 75%;
+        margin-right: 10px;
+    }
+    h3{
+        text-align: center;
+    }
+    #imgC{
+        height: 70px;
+        width: 70px;
+    }
+</style>

@@ -6,7 +6,8 @@
                     <ol>
                         @foreach ($juegos as $juego)
                             @if($juego->category == $cat_id)
-                                <li> <a id="listG" href="{{ url('juego/'.$juego -> name) }}"> {{ $juego -> name }} </a></li>
+                                <img id="imgG" src="{{ url($juego->image) }}"/>
+                                <li> <a id="listG" href="{{ url('juego/'.$juego -> name) }}"> {{ $juego -> name }} </a></li></br>
                             @endif
                         @endforeach
                     </ol>
@@ -19,5 +20,11 @@
 <style>
     #listG{
         color: black;
+        margin-left: 10px;
+    }
+    #imgG{
+        height: 32px;
+        width: 34px;
+        float: left;
     }
 </style>

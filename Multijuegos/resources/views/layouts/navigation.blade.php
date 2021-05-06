@@ -5,13 +5,13 @@
             <div class="flex">
                 <!-- Logo -->
                 @csrf
-                @if(request()->routeIs('multijuegos') or request()->routeIs('categoria') or request()->routeIs('edit'))
+                @if(request()->routeIs('multijuegos') or request()->routeIs('categoria') or request()->routeIs('edit') or request()->routeIs('addgame') or request()->routeIs('addcat') or request()->routeIs('indexgames') or request()->routeIs('indexcats'))
 
                     <div class="flex-shrink-0 flex items-center">
                         <x-application-logo2 class="block h-10 w-auto fill-current"/>
                     </div>
 
-                @elseif(request()->routeIs('juegoJuego') or request()->routeIs('categoriaCategoria'))
+                @elseif(request()->routeIs('juegoJuego') or request()->routeIs('categoriaCategoria') or request()->routeIs('showgame') or request()->routeIs('showcat'))
 
                     <div class="flex-shrink-0 flex items-center">
                         <x-application-logo3 class="block h-10 w-auto fill-current"/>
