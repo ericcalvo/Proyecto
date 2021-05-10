@@ -7,16 +7,15 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div id="divJuego" class="p-6 bg-white border-b border-gray-200">
-                <img src="https://dawjavi.insjoaquimmir.cat/abernadas/UF12/Proyecto/Multijuegos/storage/app/<?php echo e($juego_img); ?>" alt="Couldn't load image"/> </br>
+                <iframe scrolling="no" src="../../storage/app/<?php echo e($game); ?>" >Juega Ahora</></iframe>
                 <?php echo e($juego_nom); ?> </br></br>
                 <?php echo e($juego_desc); ?> </br>
-                <a href="">Juega Ahora</a>
             </div>
         </div>
     </div>
     <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
-<?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.application-footer2','data' => []]); ?>
-<?php $component->withName('application-footer2'); ?>
+<?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.application-footer-down','data' => []]); ?>
+<?php $component->withName('application-footer-down'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php $component->withAttributes([]); ?>
@@ -39,6 +38,10 @@
         margin-left: 20%;
         padding-bottom: 120px;
         margin-right: 26%;
+    }
+    iframe {
+        width: 100%;
+        height: 800px;
     }
     
 </style><?php /**PATH /var/www/html/abernadas/UF12/Proyecto/Multijuegos/resources/views/juego.blade.php ENDPATH**/ ?>

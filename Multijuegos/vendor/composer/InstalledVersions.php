@@ -29,7 +29,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => 'ee566c96a75560aa193c068d1f12ed1bb7f8ceef',
+    'reference' => '062f25728c9f66dd4fd466c52fe1383f4c3735de',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -468,7 +468,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => 'ee566c96a75560aa193c068d1f12ed1bb7f8ceef',
+      'reference' => '062f25728c9f66dd4fd466c52fe1383f4c3735de',
     ),
     'laravel/sail' => 
     array (
@@ -1311,6 +1311,15 @@ private static $installed = array (
       array (
       ),
       'reference' => '6964c76c7804814a842473e0c8fd15bab0f18e25',
+    ),
+    'zanysoft/laravel-zip' => 
+    array (
+      'pretty_version' => '1.0.3',
+      'version' => '1.0.3.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '466663746c92154c48a2d490efc6724f9f6e9652',
     ),
   ),
 );

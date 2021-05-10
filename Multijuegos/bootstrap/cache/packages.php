@@ -66,4 +66,15 @@
       0 => 'NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider',
     ),
   ),
+  'zanysoft/laravel-zip' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'ZanySoft\\Zip\\ZipServiceProvider',
+    ),
+    'aliases' => 
+    array (
+      'Zip' => 'ZanySoft\\Zip\\ZipFacade',
+    ),
+  ),
 );

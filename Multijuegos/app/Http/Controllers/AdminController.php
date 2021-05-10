@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\DB;
 use File;
 use Illuminate\Support\Facades\Storage;
 use ZipArchive;
+use ZanySoft\Zip\Zip;
+
 
 class AdminController extends Controller
 {
@@ -106,19 +108,28 @@ class AdminController extends Controller
                 $path = $request->file('image')->storeAs('games/'.$select[0]->id,$imageName); 
             }
 
-            $gameName = time().'.'.$request->game->extension();
-            
-            $path2 = $request->file('game')->storeAs(('games/'.$select[0]->id.'/game'),$gameName);
+        $gameName = time().'.'.$request->game->extension();
+        
+        $path2 = $request->file('game')->storeAs(('games/'.$select[0]->id.'/game'),$gameName);
+            //Hacemos update para guardar cambios
+        $affected = DB::table('games')
+          ->where('name', $name)
+          ->update(['image' => $path, 'game' => $path2]);
+            //Recuperamos los datos de las rutas para la extraccion del zip
+        $select  = DB::table('games')
+          ->select('*')->where('name', '=', $name)
+          ->get();  
 
-            $zip = new ZipArchive;
-            $res = $zip->open($path2);
-            $zip->extractTo('games/'.$select[0]->id.'/game');
+            //extraemos el zip
+        $file = '/var/www/html/abernadas/UF12/Proyecto/Multijuegos/storage/app/'.$path2;
+        $path2 = storage_path('app/games/'.$select[0]->id.'/');
+        
+        $zip = new ZipArchive();
+
+        if ($zip->open($file, ZipArchive::RDONLY) === true) {
+            $zip->extractTo($path2);
             $zip->close();
-
-            var_dump($path2);
-            $affected = DB::table('games')
-              ->where('name', $name)
-              ->update(['image' => $path, 'game' => $path2]);
+        }
 
             return redirect('indexgames');
         }else{
@@ -316,7 +327,22 @@ class AdminController extends Controller
     }
 
     public function proves()
-    {
-        //
+    {      
+
+        // $file = "/var/www/html/abernadas/UF12/Proyecto/Multijuegos/storage/app/games/19/game/1620657532.zip";
+        // $path = storage_path("app/games/19");
+        // var_dump($path);
+
+        // $zip = new ZipArchive();
+        // var_dump($zip->open($file));
+
+        // if ($zip->open($file, ZipArchive::RDONLY) === true) {
+        //     $zip->extractTo($path);
+        //     $zip->close();
+        //     return ('ok');
+        // } else {
+        //     return ('failed');
+        // }
+        return view('game');
     }
 }

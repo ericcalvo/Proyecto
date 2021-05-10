@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
@@ -11,7 +12,6 @@ use App\Models\Category;
 use App\Models\Game;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
-
 
 class MultijuegosController extends Controller
 {
@@ -115,6 +115,7 @@ class MultijuegosController extends Controller
         $data['juego_desc'] = $query->description;
         $data['juego_img'] = $query->image;
         $data['juego->id'] = $query->id;
+        $data['game'] = $query->game;
         return view('juego',$data);
     }
 

@@ -82,4 +82,5 @@ Route::get('/deletecat/{id}', [AdminController::class, 'destroycat'])->middlewar
 
 Route::get('/proves', [AdminController::class, 'proves'])->middleware(['auth']);
 
+
 require __DIR__.'/auth.php';
