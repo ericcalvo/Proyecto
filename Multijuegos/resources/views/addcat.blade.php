@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <h3>Crear nova categoria</h3> <br>
+            <h3>Crear nova categoria</h3> </br>
             <form id="form" action="{{url('savecat')}}" method="post" enctype="multipart/form-data">
             @csrf
                 Nom: <input type="text" name="name" id=""></br></br>

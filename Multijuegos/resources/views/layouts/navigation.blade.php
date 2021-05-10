@@ -24,11 +24,14 @@
                     <x-nav-link :href="route('multijuegos')" :active="request()->routeIs('multijuegos')">
                         {{ __('Multijuegos') }}
                     </x-nav-link>
-                    <x-nav-link :href="url('categoria')" :active="request()->routeIs('categoria')">
+                    <x-nav-link :href="route('categoria')" :active="request()->routeIs('categoria')">
                         {{ __('Categorias') }}
                     </x-nav-link>
                 </div>
             </div>
+            <x-nav-comprar-premium :href="route('categoria')" :active="request()->routeIs('categoria')">
+                {{ __('Comprar Premium') }}
+            </x-nav-comprar-premium>
 
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ml-6">

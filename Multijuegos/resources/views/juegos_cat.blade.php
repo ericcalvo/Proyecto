@@ -6,7 +6,7 @@
                     <ol>
                         @foreach ($juegos as $juego)
                             @if($juego->category == $cat_id)
-                                <img id="imgG" src="{{ url($juego->image) }}"/>
+                                <img id="imgG" src="https://dawjavi.insjoaquimmir.cat/abernadas/UF12/Proyecto/Multijuegos/storage/app/{{$juego->image}}"/>
                                 <li> <a id="listG" href="{{ url('juego/'.$juego -> name) }}"> {{ $juego -> name }} </a></li></br>
                             @endif
                         @endforeach

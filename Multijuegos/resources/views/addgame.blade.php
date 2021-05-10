@@ -2,6 +2,11 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <h3>Añadir Juego</h3></br>
+            @if($errors->any())
+                @foreach ($errors->all() as $error)
+                    <p>{{ $error }}</p>
+                @endforeach
+            @endif            
             <form id="form" action="{{url('savegame')}}" method="post" enctype="multipart/form-data">
                 @csrf
                     <label>¿Cómo se llama el juego?</label></br>
@@ -12,12 +17,16 @@
                         <option value="{{$category->id}}">{{$category->name}}</option>
                     @endforeach
                     </select></br></br>
-                    <label> Haz una pequeña descripción:</label> <br><textarea name="desc" id="" cols="30" rows="5" placeholder="Maximo 255 caracteres"></textarea></br></br>
+                    <label> Haz una pequeña descripción:</label> </br><textarea name="desc" id="" cols="30" rows="5" placeholder="Maximo 255 caracteres"></textarea></br></br>
+                    <label> El juego sera Premium?</label></br>
                     <select name="premium" id="">
                     <option value="0" selected="selected">No</option>
                     <option value="1">Si</option>
-                    </select> <br>
-                    <label> Por ultimo sube una imagen para usar como icono: </label> <input type="file" name="image" id="" class="form-control-file"></br></br>
+                    </select> </br></br>
+                    <label> Por ultimo sube una imagen para usar como icono: </label>
+                    <input type="file" name="image" id="" class="form-control-file"></br></br>
+                    <label> Zip del juego: </label>
+                    <input type="file" name="game" id="" class="form-control-file"></br></br>
                     <button id="button" type="submit">Crear Juego</button>
             </form>
         </div>

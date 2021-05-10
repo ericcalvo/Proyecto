@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use File;
 use Illuminate\Support\Facades\Storage;
+use ZipArchive;
 
 class AdminController extends Controller
 {
@@ -81,25 +82,43 @@ class AdminController extends Controller
                 'name' => 'required',
                 'categoria' => 'required',
                 'desc' => 'required|max:255',
-                'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+                'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
             ]);
             
             $name = $request->input('name');
             $categoria = $request->input('categoria');
             $desc = $request->input('desc');
             $premium = $request->input('premium');
+
+
+            $create = DB::table('games')
+            ->insert(['name' => $name, 'category' => $categoria, 'description' => $desc,'is_premium' => $premium]);
+
+            $select  = DB::table('games')
+            ->select('id')->where('name', '=', $name)
+            ->get();                
+
             if($request->image == null){
                 $path = "";
             }else{
                 $imageName = time().'.'.$request->image->extension();  
-
-                $path = $request->file('image')->storeAs('games/'.$name,$imageName); 
+    
+                $path = $request->file('image')->storeAs('games/'.$select[0]->id,$imageName); 
             }
 
-            //$request->image->move(public_path('images'), $imageName);
+            $gameName = time().'.'.$request->game->extension();
+            
+            $path2 = $request->file('game')->storeAs(('games/'.$select[0]->id.'/game'),$gameName);
 
-            $create = DB::table('games')
-            ->insert(['id' => count(Game::all())+1,'name' => $name, 'category' => $categoria, 'description' => $desc,'is_premium' => $premium,'image' => $path]);
+            $zip = new ZipArchive;
+            $res = $zip->open($path2);
+            $zip->extractTo('games/'.$select[0]->id.'/game');
+            $zip->close();
+
+            var_dump($path2);
+            $affected = DB::table('games')
+              ->where('name', $name)
+              ->update(['image' => $path, 'game' => $path2]);
 
             return redirect('indexgames');
         }else{
@@ -114,23 +133,29 @@ class AdminController extends Controller
         {
             $validated = $request->validate([
                 'name' => 'required',
-                'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+                'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
             ]);
             
             $name = $request->input('name');
+
+            $create = DB::table('category')
+            ->insert(['name' => $name]);
+
+            $select  = DB::table('category')
+            ->select('id')->where('name', '=', $name)
+            ->get();                
 
             if($request->image == null){
                 $path = "";
             }else{
                 $imageName = time().'.'.$request->image->extension();  
-
-                $path = $request->file('image')->storeAs('category/'.$name,$imageName); 
+    
+                $path = $request->file('image')->storeAs('category/'.$select[0]->id,$imageName); 
             }
 
-
-            $create = DB::table('category')
-            ->insert(['id' => count(Category::all())+1,'name' => $name, 'cat_image' => $path]);
-
+            $affected = DB::table('category')
+            ->where('name', $name)
+            ->update(['image' => $path]);
             return redirect('indexcats');
         }else{
             return view('portada');
@@ -288,5 +313,10 @@ class AdminController extends Controller
         }
 
         return redirect('indexcats');
+    }
+
+    public function proves()
+    {
+        //
     }
 }

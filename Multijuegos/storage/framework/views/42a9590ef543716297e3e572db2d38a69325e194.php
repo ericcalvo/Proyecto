@@ -17,5 +17,4 @@ $classes = ($active ?? false)
 <a <?php echo e($attributes->merge(['class' => $classes])); ?>>
     <?php echo e($slot); ?>
 
-</a>
-<?php /**PATH /var/www/html/abernadas/UF12/Proyecto/Multijuegos/resources/views/components/nav-link.blade.php ENDPATH**/ ?>
+</a><?php /**PATH /var/www/html/abernadas/UF12/Proyecto/Multijuegos/resources/views/components/nav-link.blade.php ENDPATH**/ ?>

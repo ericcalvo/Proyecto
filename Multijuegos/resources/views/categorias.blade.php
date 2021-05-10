@@ -5,7 +5,7 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     <ol>
                         @foreach ($cats as $cat)
-                            <img id="imgC" src="{{ url($cat->cat_image) }}"/>
+                            <img id="imgC" class="float-left" src="https://dawjavi.insjoaquimmir.cat/abernadas/UF12/Proyecto/Multijuegos/storage/app/{{$cat->image}}"/>
                             <li><a id="listC" href="{{ url('categoria/'.$cat->name) }}"> {{ $cat -> name }}</a></li></br>
                         @endforeach
                     </ol>                
@@ -24,6 +24,5 @@
     #imgC{
         height: 30px;
         width: 32px;
-        float: left;
     }
 </style>

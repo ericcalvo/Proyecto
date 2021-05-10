@@ -114,6 +114,18 @@ class MultijuegosController extends Controller
         $data['juego_nom'] = $query->name;
         $data['juego_desc'] = $query->description;
         $data['juego_img'] = $query->image;
+        $data['juego->id'] = $query->id;
         return view('juego',$data);
+    }
+
+    public function jugar($juego)
+    {
+
+        return view('jugar',$juego);
+    }
+
+    public function comprarPremium(Request $request)
+    {
+        return view('comprarpremium');
     }
 }

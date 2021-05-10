@@ -7,9 +7,10 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div id="divJuego" class="p-6 bg-white border-b border-gray-200">
-                <img src="<?php echo e(url($juego_img)); ?>" alt="Couldn't load image"/> </br>
+                <img src="https://dawjavi.insjoaquimmir.cat/abernadas/UF12/Proyecto/Multijuegos/storage/app/<?php echo e($juego_img); ?>" alt="Couldn't load image"/> </br>
                 <?php echo e($juego_nom); ?> </br></br>
                 <?php echo e($juego_desc); ?> </br>
+                <a href="">Juega Ahora</a>
             </div>
         </div>
     </div>
