@@ -12,7 +12,7 @@
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             <?php endif; ?>
 
-            <form action="<?php echo e(url( 'updateuser' )); ?>" method="post" id="form" enctype="multipart/form-data">
+            <form action="<?php echo e(url( 'updateuser' )); ?>" method="post" id="editUser" enctype="multipart/form-data">
             <?php echo csrf_field(); ?>
                 <h3>Editar Usuario </h3> </br>
                 <label>Nombre: </label></br>
@@ -56,7 +56,7 @@
 <?php endif; ?>
 
 <style>
-    #form{
+    #editUser{
         text-align: left;
         margin-left: 32%;
         padding-bottom: 40px;

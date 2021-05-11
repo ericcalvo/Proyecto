@@ -20,7 +20,7 @@
                     <?php endif; ?>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </select></br></br>
-                <label> Descripcion: </label> <br><textarea name="desc" id="" cols="30" rows="5" placeholder="<?php echo e($juego->description); ?>"></textarea></br></br>
+                <label> Descripcion: </label> </br><textarea name="desc" id="" cols="30" rows="5" placeholder="<?php echo e($juego->description); ?>"></textarea></br></br>
                 <select name="premium" id="">
                     <?php if($juego->premium === 1): ?>
                         <option value="1" selected="selected">Sí</option>
@@ -30,7 +30,7 @@
                         <option value="0" selected="selected">No</option>
                     <?php endif; ?>
                 
-                </select><br>
+                </select></br>
                 
                 <label> Quieres cambiar la imagen? </label> <input type="file" name="image" id="" class="form-control-file"></br></br>
                 <button id="button" type="submit">Guardar Cambios</button>

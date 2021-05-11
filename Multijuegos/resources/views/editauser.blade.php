@@ -7,7 +7,7 @@
                 @endforeach
             @endif
 
-            <form action="{{ url( 'updateuser' ) }}" method="post" id="form" enctype="multipart/form-data">
+            <form action="{{ url( 'updateuser' ) }}" method="post" id="editUser" enctype="multipart/form-data">
             @csrf
                 <h3>Editar Usuario </h3> </br>
                 <label>Nombre: </label></br>
@@ -35,7 +35,7 @@
 </x-app-layout>
 
 <style>
-    #form{
+    #editUser{
         text-align: left;
         margin-left: 32%;
         padding-bottom: 40px;

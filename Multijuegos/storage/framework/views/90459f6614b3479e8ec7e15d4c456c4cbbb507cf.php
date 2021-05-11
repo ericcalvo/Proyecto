@@ -35,13 +35,13 @@
 <style>
     #divJuego{
         text-align: left;
-        margin-left: 20%;
-        padding-bottom: 120px;
-        margin-right: 26%;
+        margin-left: 10%;
+        padding-bottom: 60px;
+        margin-right: 14%;
+        margin-top: -20px;
     }
     iframe {
         width: 100%;
-        height: 800px;
+        height: 780px;
     }
-    
 </style><?php /**PATH /var/www/html/abernadas/UF12/Proyecto/Multijuegos/resources/views/juego.blade.php ENDPATH**/ ?>

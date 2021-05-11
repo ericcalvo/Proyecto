@@ -2,7 +2,7 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <h3>Crear nova categoria</h3> </br>
-            <form id="form" action="{{url('savecat')}}" method="post" enctype="multipart/form-data">
+            <form id="addCat" action="{{url('savecat')}}" method="post" enctype="multipart/form-data">
             @csrf
                 Nom: <input type="text" name="name" id=""></br></br>
                 Imagen: <input type="file" name="image" id=""> </br></br>
@@ -14,7 +14,7 @@
 </x-app-layout>
 
 <style>
-    #form{
+    #addCat{
         text-align: left;
         margin-left: 34%;
         padding-bottom: 40px;

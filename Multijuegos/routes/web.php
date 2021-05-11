@@ -19,7 +19,7 @@ use App\Http\Controllers\AdminController;
 Route::get('/', function () { return view('portada'); });
 
 //Ruta de la Pagina principal "Multijuegos"
-Route::get('/multijuegos', function () { return view('multijuegos'); })->middleware(['auth'])->name('multijuegos');
+Route::get('/multijuegos', [MultijuegosController::class, 'multijuegos'])->middleware(['auth'])->name('multijuegos');
 
 //Ruta del login
 Route::get('/login', function () { return view('login'); })->middleware(['auth'])->name('login');
@@ -38,6 +38,7 @@ Route::get('juego/{juego}', [MultijuegosController::class, 'juego'])->middleware
 
 //Ruta para reportar Bug
 Route::get('/reportarBug', [MultijuegosController::class, 'reportBug'])->middleware(['auth']);
+Route::post('/reportarBug', [MultijuegosController::class, 'reportBug2'])->middleware(['auth']);
 
 //Ruta para editar el Usuario
 Route::get('/edit', [MultijuegosController::class, 'editUser'])->middleware(['auth'])->name('edit');

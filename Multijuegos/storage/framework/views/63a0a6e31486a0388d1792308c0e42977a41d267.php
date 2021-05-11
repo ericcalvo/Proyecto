@@ -5,10 +5,10 @@
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php $component->withAttributes([]); ?>
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div id="indexGames" class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <h3>Juegos</h3></br>
             <a href="<?php echo e(url('addgame')); ?>">Crear Juego</a>
-            <table>
+            <table id="tableGames">
                 <tr>
                     <th>Nombre</th>
                     <th>Categoria</th>
@@ -66,6 +66,9 @@
 <?php endif; ?>
 
 <style>
+    #indexGames{
+        padding-bottom: 125px;
+    }
     table{
         width: 100%;
     }

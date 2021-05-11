@@ -15,6 +15,13 @@ use Illuminate\Support\Facades\Auth;
 
 class MultijuegosController extends Controller
 {
+    public function multijuegos()
+    {
+        $data['juegos'] = Game::all();
+
+        return view('multijuegos', $data);
+    }
+
     public function reportBug()
     {
         return view('reportBug');

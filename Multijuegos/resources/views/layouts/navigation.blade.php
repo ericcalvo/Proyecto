@@ -14,13 +14,13 @@
                 @elseif(request()->routeIs('juegoJuego') or request()->routeIs('categoriaCategoria') or request()->routeIs('showgame') or request()->routeIs('showcat'))
 
                     <div class="flex-shrink-0 flex items-center">
-                        <x-application-logo3 class="block h-10 w-auto fill-current"/>
+                        <x-application-logo3 class="block w-auto fill-current"/>
                     </div>
 
                 @endif
                 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                <div class="hidden space-x-8 sm:-my-px sm:ml-6 sm:flex">
                     <x-nav-link :href="route('multijuegos')" :active="request()->routeIs('multijuegos')">
                         {{ __('Multijuegos') }}
                     </x-nav-link>
@@ -29,12 +29,14 @@
                     </x-nav-link>
                 </div>
             </div>
-            <x-nav-comprar-premium :href="route('categoria')" :active="request()->routeIs('categoria')">
-                {{ __('Comprar Premium') }}
-            </x-nav-comprar-premium>
+            @if(request()->routeIs('multijuegos') or request()->routeIs('categoria'))
+                <x-nav-comprar-premium>
+                    {{ __('Comprar Premium') }}
+                </x-nav-comprar-premium>
+            @endif
 
             <!-- Settings Dropdown -->
-            <div class="hidden sm:flex sm:items-center sm:ml-6">
+            <div class="hidden sm:flex sm:items-center sm:ml-2">
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button class="flex items-center text-sm font-medium text-white hover:text-gray-400 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
@@ -90,7 +92,6 @@
             <x-responsive-nav-link :href="url('categoria')" :active="request()->routeIs('categoria')">
                 {{ __('Categorias') }}
             </x-responsive-nav-link>
-
         </div>
 
         <!-- Responsive Settings Options -->

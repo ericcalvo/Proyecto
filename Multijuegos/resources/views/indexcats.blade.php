@@ -1,6 +1,6 @@
 <x-app-layout>
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div id="indexCats" class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <h3>Categorias</h3></br>
             <a href="{{url('addcat')}}">Crear cateogria</a>
             <table>
@@ -27,6 +27,9 @@
 </x-app-layout>
 
 <style>
+    #indexCats{
+        padding-bottom: 159px;
+    }
     table{
         width: 100%;
     }

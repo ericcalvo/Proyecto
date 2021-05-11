@@ -7,7 +7,7 @@
                     <p>{{ $error }}</p>
                 @endforeach
             @endif            
-            <form id="form" action="{{url('savegame')}}" method="post" enctype="multipart/form-data">
+            <form id="addGame" action="{{url('savegame')}}" method="post" enctype="multipart/form-data">
                 @csrf
                     <label>¿Cómo se llama el juego?</label></br>
                     <input type="text" name="name" id=""></br></br>
@@ -35,7 +35,7 @@
 </x-app-layout>
 
 <style>
-    #form{
+    #addGame{
         text-align: left;
         margin-left: 34%;
         padding-bottom: 40px;

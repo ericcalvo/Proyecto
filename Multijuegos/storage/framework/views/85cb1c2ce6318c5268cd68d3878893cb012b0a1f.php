@@ -7,7 +7,7 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
+                <div id="JuegosCategorias" class="p-6 bg-white border-b border-gray-200">
                     <ol>
                         <?php $__currentLoopData = $juegos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $juego): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <?php if($juego->category == $cat_id): ?>
@@ -39,13 +39,15 @@
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <style>
+    #JuegosCategorias{
+        height: 442px;
+    }
     #listG{
         color: black;
-        margin-left: 10px;
     }
     #imgG{
-        height: 32px;
-        width: 34px;
+        height: 38px;
+        width: 40px;
         float: left;
     }
 </style><?php /**PATH /var/www/html/abernadas/UF12/Proyecto/Multijuegos/resources/views/juegos_cat.blade.php ENDPATH**/ ?>
