@@ -5,7 +5,7 @@
             <div class="flex">
                 <!-- Logo -->
                 @csrf
-                @if(request()->routeIs('multijuegos') or request()->routeIs('categoria') or request()->routeIs('edit') or request()->routeIs('addgame') or request()->routeIs('addcat') or request()->routeIs('indexgames') or request()->routeIs('indexcats'))
+                @if(request()->routeIs('multijuegos') or request()->routeIs('categoria') or request()->routeIs('edit') or request()->routeIs('addgame') or request()->routeIs('addcat') or request()->routeIs('indexgames') or request()->routeIs('indexcats') or request()->routeIs('admin'))
 
                     <div class="flex-shrink-0 flex items-center">
                         <x-application-logo2 class="block h-10 w-auto fill-current"/>
@@ -18,6 +18,8 @@
                     </div>
 
                 @endif
+
+                
                 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-6 sm:flex">
@@ -27,6 +29,11 @@
                     <x-nav-link :href="route('categoria')" :active="request()->routeIs('categoria')">
                         {{ __('Categorias') }}
                     </x-nav-link>
+                    @if(Auth::user()->is_admin === 1)
+                        <x-nav-link :href="route('admin')" :active="request()->routeIs('admin')">
+                            {{ __('Administrador') }}
+                        </x-nav-link>
+                    @endif
                 </div>
             </div>
             @if(request()->routeIs('multijuegos') or request()->routeIs('categoria'))

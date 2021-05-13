@@ -38,8 +38,8 @@
     #form{
         text-align: left;
         margin-left: 33%;
-        padding-bottom: 40px;
-        padding-bottom: 120px;
+        margin-top: 16px;
+        height: 400px;
     }
     #button{
         border: solid;

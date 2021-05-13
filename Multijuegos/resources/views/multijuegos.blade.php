@@ -1,17 +1,12 @@
 <x-app-layout>
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="max-w-5xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
+                <div id="multijuegos" class="p-6 bg-white border-b border-gray-300">
                     <h1>Multijuegos</h1>
                     @foreach ($juegos as $juego)
                         <div class="content">
                             <div class="row offset-md-3">
-                                <a href="{{ url('juego/'.$juego -> name) }}">
-                                    <img id="imgJ" src="https://dawjavi.insjoaquimmir.cat/abernadas/UF12/Proyecto/Multijuegos/storage/app/{{$juego->image}}"/>
-                                </a></br>
-                                <li id="listJ" href="{{ url('multijuegos/'.$juego->name) }}"> {{ $juego -> name }}</li></br>
-
                                 <a href="{{ url('juego/'.$juego -> name) }}">
                                     <img id="imgJ" src="https://dawjavi.insjoaquimmir.cat/abernadas/UF12/Proyecto/Multijuegos/storage/app/{{$juego->image}}"/>
                                 </a></br>
@@ -30,6 +25,9 @@
     h1{
         text-align: center;
         margin-bottom: 25px;
+    }
+    #multijuegos{
+        height: 442px;
     }
     #listJ{
         color: black;

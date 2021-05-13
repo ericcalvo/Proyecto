@@ -7,7 +7,7 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <h3>Crear nova categoria</h3> </br>
-            <form id="form" action="<?php echo e(url('savecat')); ?>" method="post" enctype="multipart/form-data">
+            <form id="addCat" action="<?php echo e(url('savecat')); ?>" method="post" enctype="multipart/form-data">
             <?php echo csrf_field(); ?>
                 Nom: <input type="text" name="name" id=""></br></br>
                 Imagen: <input type="file" name="image" id=""> </br></br>
@@ -35,7 +35,7 @@
 <?php endif; ?>
 
 <style>
-    #form{
+    #addCat{
         text-align: left;
         margin-left: 34%;
         padding-bottom: 40px;

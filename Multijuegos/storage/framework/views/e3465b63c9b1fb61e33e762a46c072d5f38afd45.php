@@ -38,8 +38,8 @@
         </div>
     </div>
     <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
-<?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.application-footer2','data' => []]); ?>
-<?php $component->withName('application-footer2'); ?>
+<?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.application-footer-down','data' => []]); ?>
+<?php $component->withName('application-footer-down'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php $component->withAttributes([]); ?>
@@ -60,8 +60,6 @@
     #form{
         text-align: left;
         margin-left: 34%;
-        padding-bottom: 40px;
-        padding-bottom: 120px;
     }
     #button{
         border: solid;

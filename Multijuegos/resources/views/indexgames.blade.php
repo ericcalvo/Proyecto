@@ -45,7 +45,7 @@
 
 <style>
     #indexGames{
-        padding-bottom: 125px;
+        padding-bottom: 182px;
     }
     table{
         width: 100%;

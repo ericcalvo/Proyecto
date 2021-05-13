@@ -32,15 +32,13 @@
             </form>
         </div>
     </div>
-    <x-application-footer2/>
+    <x-application-footer-down/>
 </x-app-layout>
 
 <style>
     #form{
         text-align: left;
         margin-left: 34%;
-        padding-bottom: 40px;
-        padding-bottom: 120px;
     }
     #button{
         border: solid;

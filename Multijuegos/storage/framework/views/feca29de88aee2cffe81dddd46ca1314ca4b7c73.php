@@ -5,18 +5,13 @@
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php $component->withAttributes([]); ?>
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="max-w-5xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
+                <div id="multijuegos" class="p-6 bg-white border-b border-gray-300">
                     <h1>Multijuegos</h1>
                     <?php $__currentLoopData = $juegos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $juego): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <div class="content">
                             <div class="row offset-md-3">
-                                <a href="<?php echo e(url('juego/'.$juego -> name)); ?>">
-                                    <img id="imgJ" src="https://dawjavi.insjoaquimmir.cat/abernadas/UF12/Proyecto/Multijuegos/storage/app/<?php echo e($juego->image); ?>"/>
-                                </a></br>
-                                <li id="listJ" href="<?php echo e(url('multijuegos/'.$juego->name)); ?>"> <?php echo e($juego -> name); ?></li></br>
-
                                 <a href="<?php echo e(url('juego/'.$juego -> name)); ?>">
                                     <img id="imgJ" src="https://dawjavi.insjoaquimmir.cat/abernadas/UF12/Proyecto/Multijuegos/storage/app/<?php echo e($juego->image); ?>"/>
                                 </a></br>
@@ -51,6 +46,9 @@
     h1{
         text-align: center;
         margin-bottom: 25px;
+    }
+    #multijuegos{
+        height: 442px;
     }
     #listJ{
         color: black;

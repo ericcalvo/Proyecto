@@ -24,8 +24,8 @@
                         <td><a href="<?php echo e(url('deletecat/'.$cat->id)); ?>">Borrar</a></td>
                     </tr>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-            </table></br>
-            <p> Acuerdate que borrar una categoria también eliminará los juegos relacionados con ella</p>
+            </table></br></br>
+            <p>Acuerdate que borrar una categoria también eliminará los juegos relacionados con ella</p>
         </div>
     </div>
     <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
@@ -49,7 +49,7 @@
 
 <style>
     #indexCats{
-        padding-bottom: 159px;
+        padding-bottom: 135px;
     }
     table{
         width: 100%;

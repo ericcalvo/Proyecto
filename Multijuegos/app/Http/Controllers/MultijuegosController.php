@@ -136,4 +136,12 @@ class MultijuegosController extends Controller
     {
         return view('comprarpremium');
     }
+
+    public function admin()
+    {      
+        if(Auth::user()->is_admin == 1)
+            return view('admin');
+        else
+            return view('portada');
+    }
 }

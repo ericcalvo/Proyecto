@@ -5,7 +5,7 @@
             <div class="flex">
                 <!-- Logo -->
                 <?php echo csrf_field(); ?>
-                <?php if(request()->routeIs('multijuegos') or request()->routeIs('categoria') or request()->routeIs('edit') or request()->routeIs('addgame') or request()->routeIs('addcat') or request()->routeIs('indexgames') or request()->routeIs('indexcats')): ?>
+                <?php if(request()->routeIs('multijuegos') or request()->routeIs('categoria') or request()->routeIs('edit') or request()->routeIs('addgame') or request()->routeIs('addcat') or request()->routeIs('indexgames') or request()->routeIs('indexcats') or request()->routeIs('admin')): ?>
 
                     <div class="flex-shrink-0 flex items-center">
                         <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
@@ -40,6 +40,8 @@
                     </div>
 
                 <?php endif; ?>
+
+                
                 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-6 sm:flex">
@@ -71,6 +73,22 @@
 <?php endif; ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
+                    <?php if(Auth::user()->is_admin === 1): ?>
+                        <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
+<?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.nav-link','data' => ['href' => route('admin'),'active' => request()->routeIs('admin')]]); ?>
+<?php $component->withName('nav-link'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php $component->withAttributes(['href' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(route('admin')),'active' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(request()->routeIs('admin'))]); ?>
+                            <?php echo e(__('Administrador')); ?>
+
+                         <?php if (isset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4)): ?>
+<?php $component = $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4; ?>
+<?php unset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4); ?>
+<?php endif; ?>
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+                    <?php endif; ?>
                 </div>
             </div>
             <?php if(request()->routeIs('multijuegos') or request()->routeIs('categoria')): ?>

@@ -19,8 +19,8 @@
                         <td><a href="{{ url('deletecat/'.$cat->id) }}">Borrar</a></td>
                     </tr>
                 @endforeach
-            </table></br>
-            <p> Acuerdate que borrar una categoria también eliminará los juegos relacionados con ella</p>
+            </table></br></br>
+            <p>Acuerdate que borrar una categoria también eliminará los juegos relacionados con ella</p>
         </div>
     </div>
     <x-application-footer/>
@@ -28,7 +28,7 @@
 
 <style>
     #indexCats{
-        padding-bottom: 159px;
+        padding-bottom: 135px;
     }
     table{
         width: 100%;

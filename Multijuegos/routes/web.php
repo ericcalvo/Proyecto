@@ -47,7 +47,7 @@ Route::post('/updateuser', [MultijuegosController::class, 'updateUserProfile'])-
 //Ruta para comprar premium
 Route::get('/comprarPremium', [MultijuegosController::class, 'comprarPremium'])->middleware(['auth'])->name('comprarPremium');
 
-//Rutas par el Administrador
+//Rutas para el Administrador
 //Index del CRUD
 //Juegos
 Route::get('/indexgames', [AdminController::class, 'indexgames'])->middleware(['auth'])->name('indexgames');
@@ -66,8 +66,6 @@ Route::get('/addcat', [AdminController::class, 'createcat'])->middleware(['auth'
 Route::post('/savegame', [AdminController::class, 'storegame'])->middleware(['auth']);
 //Categoria
 Route::post('/savecat', [AdminController::class, 'storecat'])->middleware(['auth']);
-
-//Form editar
 //Juego
 Route::get('/showgame/{id}', [AdminController::class, 'showgame'])->middleware(['auth'])->name('showgame');
 //Categoria
@@ -80,8 +78,11 @@ Route::post('/editcat/{id}', [AdminController::class, 'editcat'])->middleware(['
 //Borrar juego
 Route::get('/deletegame/{id}', [AdminController::class, 'destroygame'])->middleware(['auth']);
 Route::get('/deletecat/{id}', [AdminController::class, 'destroycat'])->middleware(['auth']);
-
+//
 Route::get('/proves', [AdminController::class, 'proves'])->middleware(['auth']);
+
+//Ruta para entrar en las opciones que puede hacer un administrador
+Route::get('/admin', [MultijuegosController::class, 'admin'])->middleware(['auth'])->name('admin');
 
 
 require __DIR__.'/auth.php';

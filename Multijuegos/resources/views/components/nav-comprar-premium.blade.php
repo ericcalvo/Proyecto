@@ -2,8 +2,8 @@
 
 <style>
     #comprarPremium{
-        margin-left: 58%;
-        width: 145px;
+        margin-left: 52%;
+        width: 166px;
         color: white;
         text-decoration: none;
     }

@@ -37,10 +37,7 @@
 <style>
     #editUser{
         text-align: left;
-        margin-left: 32%;
-        padding-bottom: 40px;
-        margin-top: -30px;
-        padding-bottom: 120px;
+        margin-left: 34%;
     }
     #button{
         border: solid;
