@@ -19,6 +19,7 @@
         display: block;
         text-align: center;
         font-weight: bold;
+        font-family: Helvetica;
     }
     #divJuego{
         text-align: left;
