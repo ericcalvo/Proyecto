@@ -10,6 +10,7 @@
                         @endforeach
                     </ol>
                 </div>
+                {{ $cats->links() }}
             </div>
         </div>
     </div>
@@ -18,7 +19,7 @@
 
 <style>
     #categorias{
-        height: 442px;
+        height: 404px;
     }
     #listC{
         color: black;

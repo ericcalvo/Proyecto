@@ -15,6 +15,8 @@
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </ol>
                 </div>
+                <?php echo e($cats->links()); ?>
+
             </div>
         </div>
     </div>
@@ -39,7 +41,7 @@
 
 <style>
     #categorias{
-        height: 442px;
+        height: 404px;
     }
     #listC{
         color: black;

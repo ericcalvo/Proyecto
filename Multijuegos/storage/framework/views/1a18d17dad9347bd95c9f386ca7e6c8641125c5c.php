@@ -40,7 +40,7 @@
         
     </head>
     <body>
-        <div class="container-fluid">
+        <div class="container-fluid ">
             <!-- Home Footer -->
             <div class="row footer">
                 <div class="col-md-5 contactos">

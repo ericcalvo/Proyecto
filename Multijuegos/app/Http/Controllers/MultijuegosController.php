@@ -17,12 +17,14 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use App\Mail\ReportBug;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Mail;
+use Session;
+use Stripe;
 
 class MultijuegosController extends Controller
 {
     public function multijuegos()
     {
-        $data['juegos'] = Game::paginate(5);
+        $data['juegos'] = Game::paginate(4);
 
         return view('multijuegos', $data);
     }
@@ -116,7 +118,7 @@ class MultijuegosController extends Controller
 
     public function cat_show()
     {
-        $data['cats'] = Category::all();
+        $data['cats'] = Category::paginate(4);
 
         return view('categorias',$data);
     }
@@ -162,6 +164,22 @@ class MultijuegosController extends Controller
     public function comprarPremium(Request $request)
     {
         return view('comprarpremium');
+    }
+
+    public function enviarPremium(Request $request)
+    {
+        Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+        Stripe\Charge::create ([
+                "amount" => 100 * 100,
+                "currency" => "usd",
+                "source" => $request->stripeToken,
+                "description" => "Test payment from itsolutionstuff.com." 
+        ]);
+  
+        Session::flash('success', 'Payment successful!');
+          
+        return back();
+
     }
 
     public function admin()

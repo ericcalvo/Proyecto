@@ -15,11 +15,11 @@
         </div>
     </div>
 </x-app-layout>
-<x-application-footer2/>
+<x-application-footer-down/>
 
 <style>
     #JuegosCategorias{
-        height: 442px;
+        height: 404px;
     }
     #listG{
         color: black;
