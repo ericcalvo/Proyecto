@@ -8,7 +8,8 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <form id="form" action="<?php echo e(url('editgame/'.$juego->id)); ?>" method="post" enctype="multipart/form-data">
                 <?php echo csrf_field(); ?>
-                <label>Editar <?php echo e($juego->name); ?></label></br>
+                <h3 id="nombreJuego">Editar <?php echo e($juego->name); ?></h3></br>
+                <label>Nombre:</label></br>
                 <input type="text" name="name" id="" placeholder="<?php echo e($juego->name); ?>"></br></br>
                 <label for="categoria">¿Cuál es su categoria?</label></br>
                 <select name="categoria" id="">
@@ -57,6 +58,9 @@
 <?php endif; ?>
 
 <style>
+    #nombreJuego{
+        margin-left: 30px;
+    }
     #form{
         text-align: left;
         margin-left: 34%;

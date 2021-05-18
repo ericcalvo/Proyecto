@@ -1,21 +1,28 @@
 <x-app-layout>
     <div class="py-12">
         <div class="max-w-5xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div id="multijuegos" class="p-6 bg-white border-b border-gray-300">
+                <div id="multijuegos">
                     <h1>Multijuegos</h1>
-                    @foreach ($juegos as $juego)
+                    @for ($i = 0; $i < 1; $i++)
                         <div class="content">
                             <div class="row offset-md-3">
-                                <a href="{{ url('juego/'.$juego -> name) }}">
-                                    <img id="imgJ" src="https://dawjavi.insjoaquimmir.cat/abernadas/UF12/Proyecto/Multijuegos/storage/app/{{$juego->image}}"/>
-                                </a></br>
-                                <li id="listJ" href="{{ url('multijuegos/'.$juego->name) }}"> {{ $juego -> name }}</li></br>
+                                <table>
+                                    <tr>
+                                    @foreach ($juegos as $juego)
+                                            <th>
+                                                <a href="{{ url('juego/'.$juego -> name) }}">
+                                                    <img id="imgJ" src="https://dawjavi.insjoaquimmir.cat/abernadas/UF12/Proyecto/Multijuegos/storage/app/{{$juego->image}}"/>
+                                                </a></br>
+                                                <li id="listJ" href="{{ url('multijuegos/'.$juego->name) }}"> {{ $juego -> name }}</li></br>
+                                            </th>
+                                    @endforeach
+                                    </tr>
+                                </table>
                             </div>
                         </div>
-                    @endforeach
+                    @endfor
+                    {{ $juegos->links() }}
                 </div>
-            </div>
         </div>
     </div>
     <x-application-footer/>
@@ -37,6 +44,7 @@
     #imgJ{
         height: 160px;
         width: 160px;
+        margin-right: 100px;
     }
     .imagenesJuegos {
         height: 160px;

@@ -12,7 +12,7 @@
                     <p><?php echo e($error); ?></p>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             <?php endif; ?>            
-            <form id="form" action="<?php echo e(url('savegame')); ?>" method="post" enctype="multipart/form-data">
+            <form id="addGame" action="<?php echo e(url('savegame')); ?>" method="post" enctype="multipart/form-data">
                 <?php echo csrf_field(); ?>
                     <label>¿Cómo se llama el juego?</label></br>
                     <input type="text" name="name" id=""></br></br>
@@ -28,7 +28,7 @@
                     <option value="0" selected="selected">No</option>
                     <option value="1">Si</option>
                     </select> </br></br>
-                    <label> Por ultimo sube una imagen para usar como icono: </label>
+                    <label> Sube una imagen para usar como icono: </label>
                     <input type="file" name="image" id="" class="form-control-file"></br></br>
                     <label> Zip del juego: </label>
                     <input type="file" name="game" id="" class="form-control-file"></br></br>
@@ -36,7 +36,13 @@
             </form>
         </div>
     </div>
-    <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
+ <?php if (isset($__componentOriginal8e2ce59650f81721f93fef32250174d77c3531da)): ?>
+<?php $component = $__componentOriginal8e2ce59650f81721f93fef32250174d77c3531da; ?>
+<?php unset($__componentOriginal8e2ce59650f81721f93fef32250174d77c3531da); ?>
+<?php endif; ?>
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
 <?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.application-footer','data' => []]); ?>
 <?php $component->withName('application-footer'); ?>
 <?php if ($component->shouldRender()): ?>
@@ -48,15 +54,9 @@
 <?php endif; ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
- <?php if (isset($__componentOriginal8e2ce59650f81721f93fef32250174d77c3531da)): ?>
-<?php $component = $__componentOriginal8e2ce59650f81721f93fef32250174d77c3531da; ?>
-<?php unset($__componentOriginal8e2ce59650f81721f93fef32250174d77c3531da); ?>
-<?php endif; ?>
-<?php echo $__env->renderComponent(); ?>
-<?php endif; ?>
 
 <style>
-    #form{
+    #addGame{
         text-align: left;
         margin-left: 34%;
         padding-bottom: 40px;

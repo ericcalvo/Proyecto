@@ -13,7 +13,7 @@
                             <img id="imgC" class="float-left" src="https://dawjavi.insjoaquimmir.cat/abernadas/UF12/Proyecto/Multijuegos/storage/app/<?php echo e($cat->image); ?>"/>
                             <li><a id="listC" href="<?php echo e(url('categoria/'.$cat->name)); ?>"> <?php echo e($cat -> name); ?></a></li></br>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                    </ol>                
+                    </ol>
                 </div>
             </div>
         </div>

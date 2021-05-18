@@ -3,7 +3,8 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <form id="form" action="{{url('editgame/'.$juego->id)}}" method="post" enctype="multipart/form-data">
                 @csrf
-                <label>Editar {{$juego->name}}</label></br>
+                <h3 id="nombreJuego">Editar {{$juego->name}}</h3></br>
+                <label>Nombre:</label></br>
                 <input type="text" name="name" id="" placeholder="{{$juego->name}}"></br></br>
                 <label for="categoria">¿Cuál es su categoria?</label></br>
                 <select name="categoria" id="">
@@ -36,6 +37,9 @@
 </x-app-layout>
 
 <style>
+    #nombreJuego{
+        margin-left: 30px;
+    }
     #form{
         text-align: left;
         margin-left: 34%;

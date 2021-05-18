@@ -23,7 +23,7 @@
                     <option value="0" selected="selected">No</option>
                     <option value="1">Si</option>
                     </select> </br></br>
-                    <label> Por ultimo sube una imagen para usar como icono: </label>
+                    <label> Sube una imagen para usar como icono: </label>
                     <input type="file" name="image" id="" class="form-control-file"></br></br>
                     <label> Zip del juego: </label>
                     <input type="file" name="game" id="" class="form-control-file"></br></br>
@@ -31,8 +31,8 @@
             </form>
         </div>
     </div>
-    <x-application-footer/>
 </x-app-layout>
+<x-application-footer/>
 
 <style>
     #addGame{

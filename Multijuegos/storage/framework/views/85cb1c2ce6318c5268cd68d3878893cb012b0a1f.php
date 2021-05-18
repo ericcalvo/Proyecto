@@ -10,17 +10,23 @@
                 <div id="JuegosCategorias" class="p-6 bg-white border-b">
                     <ol>
                         <?php $__currentLoopData = $juegos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $juego): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <?php if($juego->category == $cat_id): ?>
-                                <img id="imgG" src="https://dawjavi.insjoaquimmir.cat/abernadas/UF12/Proyecto/Multijuegos/storage/app/<?php echo e($juego->image); ?>"/>
-                                <li> <a id="listG" href="<?php echo e(url('juego/'.$juego -> name)); ?>"> <?php echo e($juego -> name); ?> </a></li></br>
-                            <?php endif; ?>
+                            <img id="imgG" src="https://dawjavi.insjoaquimmir.cat/abernadas/UF12/Proyecto/Multijuegos/storage/app/<?php echo e($juego->image); ?>"/>
+                            <li> <a id="listG" href="<?php echo e(url('juego/'.$juego -> name)); ?>"> <?php echo e($juego -> name); ?> </a></li></br>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </ol>
                 </div>
+                <?php echo e($juegos->links()); ?>
+
             </div>
         </div>
     </div>
-    <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
+ <?php if (isset($__componentOriginal8e2ce59650f81721f93fef32250174d77c3531da)): ?>
+<?php $component = $__componentOriginal8e2ce59650f81721f93fef32250174d77c3531da; ?>
+<?php unset($__componentOriginal8e2ce59650f81721f93fef32250174d77c3531da); ?>
+<?php endif; ?>
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
 <?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.application-footer2','data' => []]); ?>
 <?php $component->withName('application-footer2'); ?>
 <?php if ($component->shouldRender()): ?>
@@ -32,12 +38,7 @@
 <?php endif; ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
- <?php if (isset($__componentOriginal8e2ce59650f81721f93fef32250174d77c3531da)): ?>
-<?php $component = $__componentOriginal8e2ce59650f81721f93fef32250174d77c3531da; ?>
-<?php unset($__componentOriginal8e2ce59650f81721f93fef32250174d77c3531da); ?>
-<?php endif; ?>
-<?php echo $__env->renderComponent(); ?>
-<?php endif; ?>
+
 <style>
     #JuegosCategorias{
         height: 442px;

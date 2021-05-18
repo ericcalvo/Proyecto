@@ -2,30 +2,26 @@
     <x-auth-card>
         <x-slot name="logo">
             <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+                <x-application-logo/>
             </a>
             <x-slogan class="eslogan" />
         </x-slot>
-        <form method="POST" action="">
+        <form method="POST" action="{{url('sendbug')}}">
             @csrf
-            <div>
-                <x-label for="game" :value="__('Game')" /></br>
-
-                <input id="gameReport" type="text"/>
-            </div>
-            <!-- Password -->
-            <div class="mt-4">
-                <x-label for="password" :value="__('Password')" /></br>
-
-                <input id="comentReport" type="text" />
-            </div>
-            <div class="flex items-center justify-end mt-4">
+            <select class="juegoN" name="juego" id="">
+                @foreach($juegos as $juego)
+                    <option value="{{$juego->id}}">{{$juego->name}}</option>
+                @endforeach
+            </select>
+            <textarea name="report" id="" cols="30" rows="10"></textarea><br>
+            <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
+            <div class="flex justify-center mt-3">
                 <x-button class="ml-3">
                     {{ __('Reportar Bug') }}
                 </x-button>
             </div>
-            <x-application-copyright/>
         </form>
+        <x-application-copyright/>
     </x-auth-card>
 </x-guest-layout>
 
@@ -36,5 +32,8 @@
     #comentReport{
         width: 400px;
         height: 140px;
+    }
+    .juegoN{
+        margin-bottom: 10px;
     }
 </style>

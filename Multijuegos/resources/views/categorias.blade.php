@@ -8,7 +8,7 @@
                             <img id="imgC" class="float-left" src="https://dawjavi.insjoaquimmir.cat/abernadas/UF12/Proyecto/Multijuegos/storage/app/{{$cat->image}}"/>
                             <li><a id="listC" href="{{ url('categoria/'.$cat->name) }}"> {{ $cat -> name }}</a></li></br>
                         @endforeach
-                    </ol>                
+                    </ol>
                 </div>
             </div>
         </div>

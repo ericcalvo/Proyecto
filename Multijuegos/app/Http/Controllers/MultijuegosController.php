@@ -12,19 +12,47 @@ use App\Models\Category;
 use App\Models\Game;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
+use App\Mail\ReportBug;
+use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Mail;
 
 class MultijuegosController extends Controller
 {
     public function multijuegos()
     {
-        $data['juegos'] = Game::all();
+        $data['juegos'] = Game::paginate(5);
 
         return view('multijuegos', $data);
     }
 
     public function reportBug()
     {
-        return view('reportBug');
+        $data['juegos'] = Game::all();
+        return view('reportBug',$data);
+    }
+
+    public function sendbug(Request $request)
+    {   
+        $validated = $request->validate([
+            'juego' => 'required',
+            'report' => 'required'
+        ]);
+
+        $user = $request->user_id;
+        $juego = $request->input('juego');
+        $text = $request->input('report');
+        $data['juego'] = $juego;
+        $data['text'] = $text;
+
+        $create = DB::table('bugreport')
+        ->insert(['user' => $user, 'game' => $juego, 'comment' => $text]);
+
+        Mail::to(Auth::user()->email)->send(new ReportBug($data));
+
+        
+        return redirect('multijuegos');
     }
 
     public function editUser()
@@ -95,8 +123,6 @@ class MultijuegosController extends Controller
 
     public function lista_juegos(Request $request)
     {
-        $data['juegos'] = Game::all();
-        
         $array_url = explode('/', $request->url());
         $pos = sizeof($array_url) - 1;
         $categoria_nom = $array_url[$pos];
@@ -106,7 +132,8 @@ class MultijuegosController extends Controller
 
         $id_cat = $query->id;
 
-        $data['cat_id'] = $id_cat;
+
+        $data['juegos'] = Game::where('category', '=', $id_cat)->paginate(3);
 
         return view('juegos_cat',$data);
     }

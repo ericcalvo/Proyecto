@@ -31,14 +31,14 @@ Route::get('/register', function () { return view('register'); })->middleware(['
 Route::get('/categoria', [MultijuegosController::class, 'cat_show'])->middleware(['auth'])->name('categoria');
 
 //Ruta para ver los juegos de la categoria seleccionada
-Route::get('/categoria/{categoria}', [MultijuegosController::class, 'lista_juegos'])->middleware(['auth'])->name('categoriaCategoria');
+Route::get('/categoria/{categoria}/{pagina?}', [MultijuegosController::class, 'lista_juegos'])->middleware(['auth'])->name('categoriaCategoria');
 
 //Ruta para el juego
 Route::get('juego/{juego}', [MultijuegosController::class, 'juego'])->middleware(['auth'])->name('juegoJuego');
 
 //Ruta para reportar Bug
 Route::get('/reportarBug', [MultijuegosController::class, 'reportBug'])->middleware(['auth']);
-Route::post('/reportarBug', [MultijuegosController::class, 'reportBug2'])->middleware(['auth']);
+Route::post('/sendbug', [MultijuegosController::class, 'sendbug'])->middleware(['auth']);
 
 //Ruta para editar el Usuario
 Route::get('/edit', [MultijuegosController::class, 'editUser'])->middleware(['auth'])->name('edit');

@@ -5,6 +5,6 @@
           height: 180px;
           width: 180px;
           margin-bottom: -40px;
-          margin-top: -40px;
+          margin-top: -30px;
      }
 </style>
