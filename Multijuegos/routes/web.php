@@ -46,7 +46,7 @@ Route::post('/updateuser', [MultijuegosController::class, 'updateUserProfile'])-
 
 //Ruta para comprar premium
 Route::get('/comprarPremium', [MultijuegosController::class, 'comprarPremium'])->middleware(['auth'])->name('comprarPremium');
-Route::post('/comprarPremiumPost',[MultijuegosController::class, 'enviarPremium'])->middleware(['auth'])->name('comprarPremiumpost');
+Route::post('/comprarPremiumpost',[MultijuegosController::class, 'enviarPremium'])->middleware(['auth'])->name('comprarPremiumpost');
 //Rutas para el Administrador
 //Index del CRUD
 //Juegos

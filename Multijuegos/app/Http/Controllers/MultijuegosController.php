@@ -18,7 +18,11 @@ use App\Mail\ReportBug;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Mail;
 use Session;
-use Stripe;
+//use Stripe;
+use Stripe\Stripe;
+use Stripe\Charge;
+use Stripe\Customer;
+
 
 class MultijuegosController extends Controller
 {
@@ -167,15 +171,15 @@ class MultijuegosController extends Controller
     }
 
     public function enviarPremium(Request $request)
-    {
-        Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
-        Stripe\Charge::create ([
+    {   
+        
+        Stripe::setApiKey(env('STRIPE_SECRET'));
+        $charge = Charge::create ([
                 "amount" => 100 * 100,
-                "currency" => "usd",
-                "source" => $request->stripeToken,
-                "description" => "Test payment from itsolutionstuff.com." 
+                "currency" => "eur",
+                "source" => $request->stripeToken
         ]);
-  
+
         Session::flash('success', 'Payment successful!');
           
         return back();

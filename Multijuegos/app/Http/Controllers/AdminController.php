@@ -132,9 +132,12 @@ class AdminController extends Controller
                 $zip->extractTo($pathfile);
                 $zip->close();
             }
+            
+            $gamepath = 'game/'.$id.'/'.$request->game->name();
+
             $affected = DB::table('games')
             ->where('name', $name)
-            ->update(['game' => $pathfile]);
+            ->update(['game' => $gamepath]);
 
             return redirect('indexgames');
         }else{
