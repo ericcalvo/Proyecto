@@ -15,7 +15,14 @@ class CreateGamesTable extends Migration
     {
         Schema::create('games', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string("name");
+            $table->int("category");
+            $table->string("description");
+            $table->int("is_premium")->default(0);
+            $table->string("image");
+            $table->string("game");
+            $table->dropForeign('answers_user_id_foreign');
+            $table->foreign('category')->references('id')->on('category')->onDelete('cascade');
         });
     }
 
