@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
             $table->timestamps();
             $table->integer('is_premium')->default(0);
             $table->integer('is_admin')->default(0);
-            $table->string('profilephoto')->default(null);
+            $table->string('profilephoto')->nullable();
         });
     }
 

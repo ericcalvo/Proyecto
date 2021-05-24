@@ -16,11 +16,11 @@ class CreateGamesTable extends Migration
         Schema::create('games', function (Blueprint $table) {
             $table->id();
             $table->string("name");
-            $table->integer("category");
-            $table->string("description");
+            $table->bigInteger("category");
+            $table->text("description");
             $table->integer("is_premium")->default(0);
-            $table->string("image")->default(null);
-            $table->string("game")->default(null);
+            $table->string("image")->nullable();
+            $table->string("game")->nullable();
         });
     }
 

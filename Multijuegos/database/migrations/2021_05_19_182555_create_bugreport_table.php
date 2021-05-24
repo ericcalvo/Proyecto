@@ -15,9 +15,9 @@ class CreateBugreportTable extends Migration
     {
         Schema::create('bugreport', function (Blueprint $table) {
             $table->id();
-            $table->integer("user");
+            $table->bigInteger("user");
             $table->string("comment");
-            $table->string("game")->nullable();
+            $table->bigInteger("game")->nullable();
         });
     }
 

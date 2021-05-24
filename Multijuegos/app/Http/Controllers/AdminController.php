@@ -85,6 +85,7 @@ class AdminController extends Controller
     {
         if(Auth::user()->is_admin == 1)
         {
+            dd($request->game);
             $validated = $request->validate([
                 'name' => 'required',
                 'categoria' => 'required',
@@ -125,16 +126,14 @@ class AdminController extends Controller
                 //extraemos el zip
             $file = storage_path('app/'.$path2);
             $pathfile = storage_path('app/games/'.$id.'/');
-            $array = [$file,$pathfile];
-            dd($array);
+
             $zip = new ZipArchive();
             
             if ($zip->open($file, ZipArchive::RDONLY) === true) {
                 $zip->extractTo($pathfile);
                 $zip->close();
             }
-            
-            $gamepath = 'game/'.$id.'/'.$request->game->name();
+            $gamepath = 'game/'.$id.'/'.$request->game->;
 
             $affected = DB::table('games')
             ->where('name', $name)
