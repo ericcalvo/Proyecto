@@ -21,8 +21,6 @@ class CreateGamesTable extends Migration
             $table->integer("is_premium")->default(0);
             $table->string("image")->default(null);
             $table->string("game")->default(null);
-            $table->dropForeign('answers_user_id_foreign');
-            $table->foreign('category')->references('id')->on('category')->onDelete('cascade');
         });
     }
 

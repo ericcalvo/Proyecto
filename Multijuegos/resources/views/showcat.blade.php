@@ -2,7 +2,7 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <h3>Editar Categoria</h3></br>
-            <form id="form" action="{{url('editcat'.$cat->id)}}" method="post" enctype="multipart/form-data">
+            <form id="form" action="{{url('editcat/'.$cat->id)}}" method="post" enctype="multipart/form-data">
                 @csrf
                 Nombre: <input type="text" name="name" id="" placeholder="{{$cat->name}}"></br></br>
                 Imagen: <input type="file" name="image" id=""></br></br>

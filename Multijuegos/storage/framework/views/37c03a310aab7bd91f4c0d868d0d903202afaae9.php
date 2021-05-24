@@ -7,7 +7,7 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <h3>Editar Categoria</h3></br>
-            <form id="form" action="<?php echo e(url('editcat'.$cat->id)); ?>" method="post" enctype="multipart/form-data">
+            <form id="form" action="<?php echo e(url('editcat/'.$cat->id)); ?>" method="post" enctype="multipart/form-data">
                 <?php echo csrf_field(); ?>
                 Nombre: <input type="text" name="name" id="" placeholder="<?php echo e($cat->name); ?>"></br></br>
                 Imagen: <input type="file" name="image" id=""></br></br>

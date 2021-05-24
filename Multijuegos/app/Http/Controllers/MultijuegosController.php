@@ -18,7 +18,9 @@ use App\Mail\ReportBug;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Mail;
 use Session;
+//use Srmklive\PayPal\Services\PayPal as PayPal;
 use Srmklive\PayPal\Services\PayPal as PayPalClient;
+
 
 class MultijuegosController extends Controller
 {
@@ -164,12 +166,27 @@ class MultijuegosController extends Controller
     public function comprarPremium()
     {
 
-        $provider = new PayPalClient;
-            PayPal::setProvider();
-            $paypalProvider = PayPal::getProvider();
-            $paypalProvider->setApiCredentials(config('paypal'));
-            $paypalProvider->setAccessToken($paypalProvider->getAccessToken());
+        $provider = new PayPalClient();
+        $config = ['sandbox',];
 
+        //$provider->setApiCredentials($config);
+        $provider->setApiCredentials(config('paypal'));
+
+
+        $provider->getAccessToken();
+        $provider->createOrder([
+            "intent"=> "CAPTURE",
+            "purchase_units"=> [
+                0 => [
+                    "amount"=> [
+                        "currency_code"=> "USD",
+                        "value"=> "100.00"
+                    ]
+                ]
+            ]
+          ]);
+
+        return ("totok");
     }
    
     public function cancelarPremium()

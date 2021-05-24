@@ -1,1 +1,0 @@
-components.nav-link2<?php /**PATH /var/www/html/abernadas/UF12/Proyecto/Multijuegos/storage/framework/views/50f1468fe6db187df59d0e9507115f33fef101ea.blade.php ENDPATH**/ ?>

@@ -123,9 +123,10 @@ class AdminController extends Controller
             ->update(['image' => $path, 'game' => $path2]);
 
                 //extraemos el zip
-            $file = '/var/www/html/abernadas/UF12/Proyecto/Multijuegos/storage/app/'.$path2;
+            $file = storage_path('app/'.$path2);
             $pathfile = storage_path('app/games/'.$id.'/');
-            
+            $array = [$file,$pathfile];
+            dd($array);
             $zip = new ZipArchive();
             
             if ($zip->open($file, ZipArchive::RDONLY) === true) {
@@ -273,7 +274,8 @@ class AdminController extends Controller
 
             if($request->image == null)
             {
-                $path = Category::find($id)->cat_image;
+                $path = Category::find($id)->image;
+
             }else{
                 $imageName = time().'.'.$request->image->extension();  
                 
@@ -281,13 +283,15 @@ class AdminController extends Controller
                 if(Storage::exists(Category::find($id)->cat_image)){
                     Storage::delete(Category::find($id)->cat_image);
                 }
+
             }
+
 
             $update = DB::table('category')
                 ->where('id', $id)
-                ->update(['name' => $name,'cat_image' => $path]);
+                ->update(['name' => $name,'image' => $path]);
             
-                return redirect("indexgames");
+                return redirect("indexcats");
         }else{
             return view('portada');
         }
