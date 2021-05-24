@@ -47,8 +47,8 @@
         </div>
     </div>
     <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
-<?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.application-footer','data' => []]); ?>
-<?php $component->withName('application-footer'); ?>
+<?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.application-footer-down2','data' => []]); ?>
+<?php $component->withName('application-footer-down2'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php $component->withAttributes([]); ?>
@@ -67,7 +67,7 @@
 
 <style>
     #indexGames{
-        padding-bottom: 182px;
+        padding-bottom: 327px;
     }
     table{
         width: 100%;

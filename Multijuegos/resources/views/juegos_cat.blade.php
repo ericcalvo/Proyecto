@@ -19,7 +19,7 @@
 
 <style>
     #JuegosCategorias{
-        height: 404px;
+        height: 442px;
     }
     #listG{
         color: black;

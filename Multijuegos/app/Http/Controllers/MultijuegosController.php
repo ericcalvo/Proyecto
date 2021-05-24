@@ -18,11 +18,7 @@ use App\Mail\ReportBug;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Mail;
 use Session;
-//use Stripe;
-use Stripe\Stripe;
-use Stripe\Charge;
-use Stripe\Customer;
-
+use Srmklive\PayPal\Services\PayPal as PayPalClient;
 
 class MultijuegosController extends Controller
 {
@@ -165,25 +161,31 @@ class MultijuegosController extends Controller
         return view('jugar',$juego);
     }
 
-    public function comprarPremium(Request $request)
+    public function comprarPremium()
     {
-        return view('comprarpremium');
+
+        $provider = new PayPalClient;
+            PayPal::setProvider();
+            $paypalProvider = PayPal::getProvider();
+            $paypalProvider->setApiCredentials(config('paypal'));
+            $paypalProvider->setAccessToken($paypalProvider->getAccessToken());
+
     }
-
+   
+    public function cancelarPremium()
+    {
+        dd('Sorry you payment is canceled');
+    }
+  
     public function enviarPremium(Request $request)
-    {   
-        
-        Stripe::setApiKey(env('STRIPE_SECRET'));
-        $charge = Charge::create ([
-                "amount" => 100 * 100,
-                "currency" => "eur",
-                "source" => $request->stripeToken
-        ]);
-
-        Session::flash('success', 'Payment successful!');
-          
-        return back();
-
+    {
+        $response = $provider->getExpressCheckoutDetails($request->token);
+  
+        if (in_array(strtoupper($response['ACK']), ['SUCCESS', 'SUCCESSWITHWARNING'])) {
+            dd('Your payment was successful. You can create success page here.');
+        }
+  
+        dd('Something is wrong.');
     }
 
     public function admin()

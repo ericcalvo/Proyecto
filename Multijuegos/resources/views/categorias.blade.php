@@ -19,7 +19,7 @@
 
 <style>
     #categorias{
-        height: 404px;
+        height: 442px;
     }
     #listC{
         color: black;

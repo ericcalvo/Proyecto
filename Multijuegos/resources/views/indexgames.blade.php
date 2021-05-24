@@ -40,12 +40,12 @@
             </table>
         </div>
     </div>
-    <x-application-footer/>
+    <x-application-footer-down2/>
 </x-app-layout>
 
 <style>
     #indexGames{
-        padding-bottom: 182px;
+        padding-bottom: 327px;
     }
     table{
         width: 100%;

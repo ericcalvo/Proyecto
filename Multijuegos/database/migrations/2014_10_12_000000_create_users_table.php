@@ -21,9 +21,9 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
-            $table->int('is_premium');
-            $table->int('is_admin');
-            $table->string('profilephoto');
+            $table->integer('is_premium')->default(0);
+            $table->integer('is_admin')->default(0);
+            $table->string('profilephoto')->default(null);
         });
     }
 

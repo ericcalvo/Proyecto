@@ -49,7 +49,7 @@
 
 <style>
     #indexCats{
-        padding-bottom: 135px;
+        padding-bottom: 239px;
     }
     table{
         width: 100%;
@@ -61,7 +61,6 @@
         width: 74%;
         margin-right: 10px;
     }
-
     h3{
         text-align: center;
     }

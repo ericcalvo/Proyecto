@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => '77c04f54eb7c0b6e0bf418c529c8d0db50335926',
+    'reference' => 'acf3b86c27204add37e35bafed4e11b9b1ac7b17',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -463,7 +463,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '77c04f54eb7c0b6e0bf418c529c8d0db50335926',
+      'reference' => 'acf3b86c27204add37e35bafed4e11b9b1ac7b17',
     ),
     'laravel/sail' => 
     array (
@@ -601,6 +601,15 @@
       array (
       ),
       'reference' => '06e2ebd25f2869e54a306dda991f7db58066f7f6',
+    ),
+    'paypal/rest-api-sdk-php' => 
+    array (
+      'pretty_version' => '1.14.0',
+      'version' => '1.14.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '72e2f2466975bf128a31e02b15110180f059fc04',
     ),
     'phar-io/manifest' => 
     array (
@@ -1022,6 +1031,15 @@
       array (
       ),
       'reference' => 'c6c1022351a901512170118436c764e473f6de8c',
+    ),
+    'srmklive/paypal' => 
+    array (
+      'pretty_version' => '3.0.3',
+      'version' => '3.0.3.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '0aefc864b351770f9e82b2fc88d8aa6c87de3c87',
     ),
     'stripe/stripe-php' => 
     array (
