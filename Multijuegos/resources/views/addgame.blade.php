@@ -39,7 +39,6 @@
         text-align: left;
         margin-left: 34%;
         padding-bottom: 40px;
-        padding-bottom: 120px;
     }
     h3{
         text-align: center;

@@ -46,9 +46,8 @@ Route::get('/edit', [MultijuegosController::class, 'editUser'])->middleware(['au
 Route::post('/updateuser', [MultijuegosController::class, 'updateUserProfile'])->middleware(['auth']);
 
 //Ruta para comprar premium
-Route::get('/comprarPremium', [PayPalController::class, 'comprarPremium'])->middleware(['auth'])->name('comprarPremium');
-Route::get('/cancelarcompra', [PayPalController::class,'cancelarPremium'])->middleware(['auth'])->name('cancelarPremium');
-Route::post('/comprarPremiumpost',[PayPalController::class, 'enviarPremium'])->middleware(['auth'])->name('comprarPremiumpost');
+Route::get('/comprarPremium', [PayPalController::class, 'payWithPayPal'])->middleware(['auth'])->name('comprarPremium');
+Route::get('/comprarPremiumpost',[PayPalController::class, 'payPalStatus'])->middleware(['auth'])->name('comprarPremiumpost');
 //Rutas para el Administrador
 //Index del CRUD
 //Juegos

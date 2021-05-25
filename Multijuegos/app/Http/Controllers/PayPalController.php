@@ -3,6 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use PayPal\Auth\OAuthTokenCredential;
+use PayPal\Rest\ApiContext;
+use Illuminate\Support\Facades\Config;
+use PayPal\Api\Amount;
+use PayPal\Api\Payer;
+use PayPal\Api\Payment;
+use PayPal\Api\Transaction;
+use PayPal\Api\RedirectUrls;
+use PayPal\Api\PaymentExecution;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+
 
 class PayPalController extends Controller
 {
@@ -19,7 +31,7 @@ class PayPalController extends Controller
             )
         );
 
-        $this->apiContext->setConfig($payPalConfig['settings']);
+        //$this->apiContext->setConfig($payPalConfig['settings']);
     }
 
     
@@ -30,18 +42,15 @@ class PayPalController extends Controller
         $payer->setPaymentMethod('paypal');
 
         $amount = new Amount();
-        $amount->setTotal('3.99');
-        $amount->setCurrency('USD');
+        $amount->setTotal('4.99');
+        $amount->setCurrency('EUR');
 
         $transaction = new Transaction();
         $transaction->setAmount($amount);
-        // $transaction->setDescription('See your IQ results');
-
-        $callbackUrl = url('/paypal/status');
 
         $redirectUrls = new RedirectUrls();
-        $redirectUrls->setReturnUrl($callbackUrl)
-            ->setCancelUrl($callbackUrl);
+        $redirectUrls->setReturnUrl(url('/comprarPremiumpost'))
+            ->setCancelUrl(url('/cancelarcompra'));
 
         $payment = new Payment();
         $payment->setIntent('sale')
@@ -65,7 +74,7 @@ class PayPalController extends Controller
 
         if (!$paymentId || !$payerId || !$token) {
             $status = 'Lo sentimos! El pago a través de PayPal no se pudo realizar.';
-            return redirect('/paypal/failed')->with(compact('status'));
+            return ($status);
         }
 
         $payment = Payment::get($paymentId, $this->apiContext);
@@ -78,10 +87,16 @@ class PayPalController extends Controller
 
         if ($result->getState() === 'approved') {
             $status = 'Gracias! El pago a través de PayPal se ha ralizado correctamente.';
-            return redirect('/results')->with(compact('status'));
+            $id = Auth::user()->id;
+            $update = DB::table('users')
+            ->where('id', $id)
+            ->update(['is_premium' => 1 , 'purchased_at' => date('d/m/Y ', time())]);
+
+            return redirect('/multijuegos');
         }
 
         $status = 'Lo sentimos! El pago a través de PayPal no se pudo realizar.';
-        return redirect('/results')->with(compact('status'));
+        //return redirect('/results')->with(compact('status'));
+        return $status;
     }
 }

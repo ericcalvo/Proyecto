@@ -85,7 +85,6 @@ class AdminController extends Controller
     {
         if(Auth::user()->is_admin == 1)
         {
-            dd($request->game);
             $validated = $request->validate([
                 'name' => 'required',
                 'categoria' => 'required',
@@ -133,7 +132,7 @@ class AdminController extends Controller
                 $zip->extractTo($pathfile);
                 $zip->close();
             }
-            $gamepath = 'game/'.$id.'/'.$request->game->;
+            $gamepath = 'game/'.$id.'/'.$request->game;
 
             $affected = DB::table('games')
             ->where('name', $name)

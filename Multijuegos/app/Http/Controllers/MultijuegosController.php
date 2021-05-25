@@ -26,7 +26,12 @@ class MultijuegosController extends Controller
 {
     public function multijuegos()
     {
-        $data['juegos'] = Game::paginate(4);
+        if(Auth::user()->is_premium == 0){
+            $data['juegos'] = Game::where('is_premium','=','0')->paginate(4);
+        }
+        else{
+            $data['juegos'] = Game::paginate(4);
+        }
 
         return view('multijuegos', $data);
     }
@@ -137,7 +142,13 @@ class MultijuegosController extends Controller
         $id_cat = $query->id;
 
 
-        $data['juegos'] = Game::where('category', '=', $id_cat)->paginate(3);
+        if(Auth::user()->is_premium == 0){
+            $data['juegos'] = Game::where('is_premium','=','0')->where('category', '=', $id_cat)->paginate(3);
+        }
+        else{
+            $data['juegos'] = Game::where('category', '=', $id_cat)->paginate(3);
+        }
+
 
         return view('juegos_cat',$data);
     }
@@ -161,48 +172,6 @@ class MultijuegosController extends Controller
     {
 
         return view('jugar',$juego);
-    }
-
-    public function comprarPremium()
-    {
-
-        $provider = new PayPalClient();
-        $config = ['sandbox',];
-
-        //$provider->setApiCredentials($config);
-        $provider->setApiCredentials(config('paypal'));
-
-
-        $provider->getAccessToken();
-        $provider->createOrder([
-            "intent"=> "CAPTURE",
-            "purchase_units"=> [
-                0 => [
-                    "amount"=> [
-                        "currency_code"=> "USD",
-                        "value"=> "100.00"
-                    ]
-                ]
-            ]
-          ]);
-
-        return ("totok");
-    }
-   
-    public function cancelarPremium()
-    {
-        dd('Sorry you payment is canceled');
-    }
-  
-    public function enviarPremium(Request $request)
-    {
-        $response = $provider->getExpressCheckoutDetails($request->token);
-  
-        if (in_array(strtoupper($response['ACK']), ['SUCCESS', 'SUCCESSWITHWARNING'])) {
-            dd('Your payment was successful. You can create success page here.');
-        }
-  
-        dd('Something is wrong.');
     }
 
     public function admin()
