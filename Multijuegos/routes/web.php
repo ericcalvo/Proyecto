@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MultijuegosController;
 use GuzzleHttp\Middleware;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\PayPalController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,9 +46,9 @@ Route::get('/edit', [MultijuegosController::class, 'editUser'])->middleware(['au
 Route::post('/updateuser', [MultijuegosController::class, 'updateUserProfile'])->middleware(['auth']);
 
 //Ruta para comprar premium
-Route::get('/comprarPremium', [MultijuegosController::class, 'comprarPremium'])->middleware(['auth'])->name('comprarPremium');
-Route::get('/cancelarcompra', [MultijuegosController::class,'cancelarPremium'])->middleware(['auth'])->name('cancelarPremium');
-Route::post('/comprarPremiumpost',[MultijuegosController::class, 'enviarPremium'])->middleware(['auth'])->name('comprarPremiumpost');
+Route::get('/comprarPremium', [PayPalController::class, 'comprarPremium'])->middleware(['auth'])->name('comprarPremium');
+Route::get('/cancelarcompra', [PayPalController::class,'cancelarPremium'])->middleware(['auth'])->name('cancelarPremium');
+Route::post('/comprarPremiumpost',[PayPalController::class, 'enviarPremium'])->middleware(['auth'])->name('comprarPremiumpost');
 //Rutas para el Administrador
 //Index del CRUD
 //Juegos
